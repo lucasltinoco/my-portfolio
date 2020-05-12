@@ -1,58 +1,39 @@
 <template>
   <div id="app">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <Header />
     <Content />
-    <Footer />
   </div>
 </template>
 
 <script>
-import Header from "@/components/template/Header";
-import Content from "@/components/template/Content";
-import Footer from "@/components/template/Footer";
+import Content from "@/components/Content";
 
 export default {
   name: "App",
   components: {
-    Header,
-    Content,
-    Footer
+    Content
   }
 };
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap');
+
 * {
   font-family: "Jost", sans-serif;
 }
 
+
 body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(
-    to right,
-    #ffffff,
-    #ece9e6
-  );
+  margin: 0px;
+  color: #000;
+  background: linear-gradient(to left, #ece9e6, #ffffff);
 }
 
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-
+  /* margin: 0px; */
   height: 100vh;
-  display: grid;
-  grid-template-rows: 12vh 1fr 5vh;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "header"
-    "content"
-    "footer";
 }
 </style>
