@@ -39,4 +39,11 @@ header {
   font-size: 2.5em;
   font-weight: 900;
 }
+
+.fa-chevron-down,
+.fa-chevron-down:hover {
+  padding-bottom: 10px;
+  text-decoration: none;
+  color: #000;
+}
 </style>

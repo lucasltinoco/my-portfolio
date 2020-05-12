@@ -22,6 +22,9 @@ export default {
   font-family: "Jost", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0px;

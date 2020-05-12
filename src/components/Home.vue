@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home">
     <header>lucas l. tinoco</header>
     <div class="home-content">
       <img src="../assets/avatar.png" alt="Avatar" />
@@ -7,7 +7,7 @@
         Hi! I'm a (variable adjective).
         <br />I create blablablablabla.
       </p>
-      <i class="fa fa-chevron-down"></i>
+      <a href="#about-me" class="fa fa-chevron-down"></a>
     </div>
   </div>
 </template>
@@ -37,9 +37,5 @@ export default {
   padding-top: 25px;
   font-style: italic;
   font-size: 1.5em;
-}
-
-.fa-chevron-down {
-  padding-top: 100px;
 }
 </style>

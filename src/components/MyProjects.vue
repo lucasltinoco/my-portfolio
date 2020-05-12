@@ -1,8 +1,9 @@
 <template>
-  <div class="my-projects">
+  <div id="my-projects">
     <header>my projects</header>
     <div class="my-projects-content">
       <p>My Projects Content</p>
+      <a href="#contact-me" class="fa fa-chevron-down"></a>
     </div>
   </div>
 </template>
