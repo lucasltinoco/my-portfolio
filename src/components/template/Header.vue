@@ -1,20 +1,22 @@
 <template>
-  <footer>Footer</footer>
+  <header><h1>lucas l. tinoco</h1></header>
 </template>
 
 <script>
 export default {
-  name: "Footer"
+  name: "Header"
 };
 </script>
 
 <style>
-footer {
+header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 1;
   background: transparent;
+  font-size: 18px;
+  font-weight: 900;
 }
 </style>

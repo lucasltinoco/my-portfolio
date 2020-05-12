@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <Header />
     <Content />
     <Footer />
@@ -7,9 +11,9 @@
 </template>
 
 <script>
-import Header from "./components/Header";
-import Content from "./components/Content";
-import Footer from "./components/Footer";
+import Header from "@/components/template/Header";
+import Content from "@/components/template/Content";
+import Footer from "@/components/template/Footer";
 
 export default {
   name: "App",
@@ -23,11 +27,17 @@ export default {
 
 <style>
 * {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ece9e6
+  );
 }
 
 #app {
@@ -38,7 +48,7 @@ body {
 
   height: 100vh;
   display: grid;
-  grid-template-rows: 10vh 1fr 5vh;
+  grid-template-rows: 12vh 1fr 5vh;
   grid-template-columns: 1fr;
   grid-template-areas:
     "header"
