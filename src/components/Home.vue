@@ -1,14 +1,14 @@
 <template>
   <div id="home">
-    <header>lucas l. tinoco</header>
-    <div class="home-content">
-      <img src="../assets/avatar.png" alt="Avatar" />
-      <p>
-        Hi! I'm a (variable adjective).
-        <br />I create blablablablabla.
-      </p>
-      <a href="#about-me" class="fa fa-chevron-down"></a>
-    </div>
+    <h1>lucas l. tinoco</h1>
+      <div class="avatar">
+        <img src="../assets/imgs/avatar.png" alt="Avatar" />
+        <p>
+          Hi! I'm a (variable adjective).
+          <br />I create when it doesn't exist and fix when it doesn't work.
+        </p>
+      </div>
+      <a href="#who-i-am" class="fa fa-chevron-down"></a>
   </div>
 </template>
 
@@ -19,23 +19,24 @@ export default {
 </script>
 
 <style>
-.home-content {
+#home {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 100vh;
 }
 
-.home-content img {
+#home img {
   height: 120px;
   width: 120px;
   border-radius: 50vh;
 }
 
-.home-content p {
-  padding-top: 25px;
+#home p {
+  padding-top: 4vh;
   font-style: italic;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
+
 </style>

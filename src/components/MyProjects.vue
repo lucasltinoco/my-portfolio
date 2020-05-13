@@ -1,10 +1,8 @@
 <template>
   <div id="my-projects">
-    <header>my projects</header>
-    <div class="my-projects-content">
+    <h1>my projects</h1>
       <p>My Projects Content</p>
       <a href="#contact-me" class="fa fa-chevron-down"></a>
-    </div>
   </div>
 </template>
 
@@ -15,11 +13,16 @@ export default {
 </script>
 
 <style>
-.my-projects-content {
+#my-projects {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 100vh;
+}
+
+#my-projects p {
+  font-size: 1.5rem;
+  width: 75vw;
 }
 </style>

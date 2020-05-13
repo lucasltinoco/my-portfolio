@@ -36,7 +36,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /* margin: 0px; */
+  margin: 0px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
