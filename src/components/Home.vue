@@ -1,20 +1,36 @@
 <template>
   <div id="home">
     <h1>lucas l. tinoco</h1>
-      <div class="avatar">
-        <img src="../assets/imgs/avatar.png" alt="Avatar" />
-        <p>
-          Hi! I'm a (variable adjective).
-          <br />I create when it doesn't exist and fix when it doesn't work.
-        </p>
-      </div>
-      <a href="#who-i-am" class="fa fa-chevron-down"></a>
+    <div class="avatar">
+      <img src="../assets/imgs/avatar.png" alt="Avatar" />
+      <p>
+        Hi! I'm a <strong class="adjective">{{adjectives[counter]}}</strong>.
+        <br />I create when it doesn't exist and fix when it doesn't work.
+      </p>
+    </div>
+    <a href="#who-i-am" class="fa fa-chevron-down"></a>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home"
+  name: "Home",
+  data: function() {
+    return {
+      adjectives: ['maker', 'reader', 'dev', 'baller'],
+      counter: 0
+    }
+  },
+  methods: {
+    updateAdjective() {
+      setInterval(() => {
+        this.counter > 2 ? this.counter = 0 : this.counter++
+      }, 1500);
+    }
+  },
+  mounted() {
+    this.updateAdjective()
+  }
 };
 </script>
 
@@ -36,7 +52,10 @@ export default {
 #home p {
   padding-top: 4vh;
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
+.adjective {
+  color: green;
+}
 </style>
