@@ -71,7 +71,7 @@ h1 {
 
 .fa-chevron-down,
 .fa-chevron-down:hover {
-  padding-bottom: 10vh;
+  margin-bottom: 10vh;
   text-decoration: none;
   color: #000;
 }

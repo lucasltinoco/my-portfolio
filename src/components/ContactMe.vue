@@ -29,7 +29,7 @@ export default {
 
 .fa-chevron-up,
 .fa-chevron-up:hover {
-  padding-bottom: 10vh;
+  margin-bottom: 10vh;
   text-decoration: none;
   color: #000;
 }
