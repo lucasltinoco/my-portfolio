@@ -1,9 +1,9 @@
 <template>
   <div id="who-i-am">
     <h1>who i am</h1>
-      <p>I'm an electronics technician graduated in 2019 at the Federal Institute of Santa Catarina (IFSC) (put link), 
+      <p>I'm an electronics technician graduated in 2019 at the Federal Institute of Santa Catarina (<a href="https://www.ifsc.edu.br/international">IFSC</a>), 
         who now strives to get an undergraduate degree in Electronical Engineering at the Federal University of Santa Catarina
-        (UFSC) (put link). Currently, I live in Florianópolis, Brazil, where, in addition to studying engineering, I study 
+        (<a href="https://en.ufsc.br/">UFSC</a>). Currently, I live in Florianópolis, Brazil, where, in addition to studying engineering, I study 
         programming on my own. When I'm not designing new circuits, studying or coding, I like to play some basketball or 
         soccer, to read and to sing -- sometimes mixing things up too...</p>
       <a href="#what-i-do" class="fa fa-chevron-down"></a>
@@ -28,5 +28,11 @@ export default {
 #who-i-am p {
   font-size: 1.5rem;
   text-align: center;
+}
+
+#who-i-am a,
+#who-i-am a:hover {
+  text-decoration: none;
+  color: #000;
 }
 </style>

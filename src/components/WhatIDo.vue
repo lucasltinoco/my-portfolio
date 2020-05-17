@@ -9,7 +9,7 @@
           <br>
           Most recently, I've been studying Web Development. My stack includes Node.js, Vue.js, HTML5, CSS3, Bootstrap and 
           also some relational and non-relational databases, such as PostgresSQL and MongoDB. Please be free to check me out 
-          on GitHub (put link)!</p>
+          on <a href="https://github.com/lucasltinoco/">GitHub</a>!</p>
       <a href="#my-projects" class="fa fa-chevron-down"></a>
   </div>
 </template>
@@ -32,5 +32,11 @@ export default {
 #what-i-do p {
   font-size: 1.5rem;
   width: 75vw;
+}
+
+#what-i-do a,
+#what-i-do a:hover {
+  text-decoration: none;
+  color: #000;
 }
 </style>
