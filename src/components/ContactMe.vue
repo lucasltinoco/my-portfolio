@@ -65,14 +65,6 @@ export default {
   height: 100vh;
 }
 
-#contact-me b-form-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-}
-
 .fa-chevron-up,
 .fa-chevron-up:hover {
   margin-bottom: 10vh;
