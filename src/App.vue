@@ -67,6 +67,7 @@ h1 {
   top: 5vh;
   font-size: 2.5rem;
   font-weight: 900;
+  z-index: 1;
 }
 
 .fa-chevron-down,
