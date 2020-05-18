@@ -1,76 +1,88 @@
 <template>
   <div id="my-projects">
     <h1>my projects</h1>
-    <div class="projects">
     <div class="tags">tags</div>
-      <b-card-group deck>
-        <b-card
-          overlay
-          img-src="https://media.giphy.com/media/3ov9k01Y5IKizNmC7S/giphy.gif"
-          img-alt="Card Image"
-          text-variant="white"
-          title="Image Overlay"
-          sub-title="Subtitle"
-        ></b-card>
-        <b-card
-          overlay
-          img-src="https://media.giphy.com/media/3ov9k01Y5IKizNmC7S/giphy.gif"
-          img-alt="Card Image"
-          text-variant="white"
-          title="Image Overlay"
-          sub-title="Subtitle"
-        ></b-card>
-        <b-card
-          overlay
-          img-src="https://media.giphy.com/media/3ov9k01Y5IKizNmC7S/giphy.gif"
-          img-alt="Card Image"
-          text-variant="white"
-          title="Image Overlay"
-          sub-title="Subtitle"
-        ></b-card>
-        <b-card
-          overlay
-          img-src="https://media.giphy.com/media/3ov9k01Y5IKizNmC7S/giphy.gif"
-          img-alt="Card Image"
-          text-variant="white"
-          title="Image Overlay"
-          sub-title="Subtitle"
-        ></b-card>
-      </b-card-group>
-      <b-card-group deck>
-        <b-card
-          overlay
-          img-src="https://media.giphy.com/media/3ov9k01Y5IKizNmC7S/giphy.gif"
-          img-alt="Card Image"
-          text-variant="white"
-          title="Image Overlay"
-          sub-title="Subtitle"
-        ></b-card>
-        <b-card
-          overlay
-          img-src="https://media.giphy.com/media/3ov9k01Y5IKizNmC7S/giphy.gif"
-          img-alt="Card Image"
-          text-variant="white"
-          title="Image Overlay"
-          sub-title="Subtitle"
-        ></b-card>
-        <b-card
-          overlay
-          img-src="https://media.giphy.com/media/3ov9k01Y5IKizNmC7S/giphy.gif"
-          img-alt="Card Image"
-          text-variant="white"
-          title="Image Overlay"
-          sub-title="Subtitle"
-        ></b-card>
-        <b-card
-          overlay
-          img-src="https://media.giphy.com/media/3ov9k01Y5IKizNmC7S/giphy.gif"
-          img-alt="Card Image"
-          text-variant="white"
-          title="Image Overlay"
-          sub-title="Subtitle"
-        ></b-card>
-      </b-card-group>
+    <div class="projects">
+      <div>
+        <img
+          src="@/assets/imgs/projects/proerd.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
+      <div>
+        <img
+          src="@/assets/imgs/projects/knowledge.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
+      <div>
+        <img
+          src="@/assets/imgs/projects/gallery.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
+      <div>
+        <img
+          src="@/assets/imgs/projects/react_calculator.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
+      <div>
+        <img
+          src="@/assets/imgs/projects/react_crud.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
+      <div>
+        <img
+          src="@/assets/imgs/projects/vue_qrcode.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
+      <div>
+        <img
+          src="@/assets/imgs/projects/vue_calculator.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
+      <div>
+        <img
+          src="@/assets/imgs/projects/vue_montyhall.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
+      <div>
+        <img
+          src="@/assets/imgs/projects/angular_crud.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
+      <div>
+        <img
+          src="@/assets/imgs/projects/proerd.gif"
+          alt="test"
+          height="150px"
+          width="150px"
+        />
+      </div>
     </div>
     <a href="#contact-me" class="fa fa-chevron-down"></a>
   </div>
@@ -93,15 +105,19 @@ export default {
 
 .projects {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin-bottom: 3vh;
-  z-index: 0;
+  width: 75vw;
 }
 
 .tags {
   margin-top: 5vh;
+}
+
+img {
+  border-radius: 8px;
+  margin: 10px;
 }
 </style>
