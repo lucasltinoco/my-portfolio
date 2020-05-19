@@ -1,22 +1,20 @@
 <template>
   <div id="my-projects">
     <h1>my projects</h1>
-    <div class="tags">
-      <b-button-group size="sm">
-        <b-button @click="setTag('cpp')">C++</b-button>
-        <b-button @click="setTag('allegro')">Allegro</b-button>
-        <b-button @click="setTag('vue')">Vue</b-button>
-        <b-button @click="setTag('bootstrap')">Bootstrap</b-button>
-        <b-button @click="setTag('mongodb')">MongoDB</b-button>
-        <b-button @click="setTag('postgresql')">PostgreSQL</b-button>
-        <b-button @click="setTag('jquery')">jQuery</b-button>
-        <b-button @click="setTag('webpack')">WebPack</b-button>
-        <b-button @click="setTag('react')">React</b-button>
-        <b-button @click="setTag('jsonserver')">JSON Server</b-button>
-        <b-button @click="setTag('angular')">Angular</b-button>
-        <b-button @click="setTag('all')">All</b-button>
-      </b-button-group>
-    </div>
+    <b-button-group size="sm">
+      <b-button @click="setTag('cpp')">C++</b-button>
+      <b-button @click="setTag('allegro')">Allegro</b-button>
+      <b-button @click="setTag('vue')">Vue</b-button>
+      <b-button @click="setTag('bootstrap')">Bootstrap</b-button>
+      <b-button @click="setTag('mongodb')">MongoDB</b-button>
+      <b-button @click="setTag('postgresql')">PostgreSQL</b-button>
+      <b-button @click="setTag('jquery')">jQuery</b-button>
+      <b-button @click="setTag('webpack')">WebPack</b-button>
+      <b-button @click="setTag('react')">React</b-button>
+      <b-button @click="setTag('jsonserver')">JSON Server</b-button>
+      <b-button @click="setTag('angular')">Angular</b-button>
+      <b-button @click="setTag('all')">All</b-button>
+    </b-button-group>
     <div class="projects">
       <div class="card proerd" v-show="tags.cpp || tags.allegro || tags.all">
         <div class="card-category">Run & Jump Game</div>
@@ -109,7 +107,7 @@ export default {
   methods: {
     setTag(tag) {
       for (let [key, value] of Object.entries(this.tags)) {
-        key == tag ? value = true : value = false 
+        key == tag ? value = true : value = false
         this.tags[key] = value
       }
     }
