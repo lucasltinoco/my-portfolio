@@ -15,7 +15,7 @@
       </div>
 
       <div class="card gallery">
-        <div class="card-category">Gallery</div>
+        <div class="card-category">Trip Gallery</div>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria"></a>
       </div>
 
@@ -30,7 +30,7 @@
       </div>
 
       <div class="card qr-code">
-        <div class="card-category">QR Code Gen</div>
+        <div class="card-category">QR Code Generator</div>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/qrcode"></a>
       </div>
 
@@ -40,7 +40,7 @@
       </div>
 
       <div class="card monty-hall">
-        <div class="card-category">Monty Hall</div>
+        <div class="card-category">Monty Hall Problem</div>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/montyhall"></a>
       </div>
 
@@ -102,6 +102,7 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  text-align: left;
   color: #fff;
 }
 
