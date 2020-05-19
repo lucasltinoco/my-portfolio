@@ -1,6 +1,6 @@
 ## List of projects: 
 
-- Proerd Game [C] [Allegro] https://github.com/lucasltinoco/proerd-game
+- Proerd Game [C++] [Allegro] https://github.com/lucasltinoco/proerd-game
 - Knowledge [Vue] [Bootstrap] [MongoDB] [PostgreSQL] https://github.com/lucasltinoco/knowledge
 - Gallery project [Bootstrap] [jQuery] [Webpack] https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria
 - Calculator [React] https://github.com/lucasltinoco/cursoWeb/tree/master/react/calculadora
