@@ -17,7 +17,7 @@ export default {
 <style>
 #who-i-am p {
   font-size: 1.5rem;
-  text-align: center;
+  width: 75vw;
 }
 
 #who-i-am a,
