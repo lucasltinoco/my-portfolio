@@ -1,19 +1,23 @@
 <template>
-  <div id="home">
-    <h1>lucas l. tinoco</h1>
-    <div>
-      <img src="../assets/imgs/avatar.png" alt="Avatar" />
-      <p>
-        Hi! I'm a
-        <strong class="adjective">{{adjectives[counter]}}</strong>.
-        <br />I create when it doesn't exist and fix when it doesn't work.
-      </p>
-      <a href="https://www.linkedin.com/in/lucas-tinoco-783420194/"><i class="fa fa-linkedin"></i></a>
-      <a href="https://github.com/lucasltinoco"><i class="fa fa-github"></i></a>
-      <a href="mailto:lucasltinoco@gmail.com"><i class="fa fa-envelope"></i></a>
+  <section id="home">
+    <img src="../assets/imgs/avatar.png" alt="Avatar" />
+    <p>
+      Hi! I'm a
+      <strong class="adjective">{{adjectives[counter]}}</strong>.
+      <br />I create when it doesn't exist and fix when it doesn't work.
+    </p>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/lucas-tinoco-783420194/">
+        <i class="fa fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/lucasltinoco">
+        <i class="fa fa-github"></i>
+      </a>
+      <a href="mailto:lucasltinoco@gmail.com">
+        <i class="fa fa-envelope"></i>
+      </a>
     </div>
-    <a href="#who-i-am" class="fa fa-chevron-down"></a>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -39,14 +43,6 @@ export default {
 </script>
 
 <style>
-#home {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-}
-
 #home img {
   height: 120px;
   width: 120px;
@@ -63,11 +59,15 @@ export default {
   color: green;
 }
 
-#home i {
-  text-decoration: none;
-  color: black;
-  padding: 0 5px;
+.social {
+  display: flex;
+  flex-direction: row;
   font-size: 1em;
-  
+}
+
+.social i {
+  color: black;
+  text-decoration: none;
+  padding: 0 5px;
 }
 </style>

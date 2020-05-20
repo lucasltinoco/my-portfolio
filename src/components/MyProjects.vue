@@ -1,6 +1,5 @@
 <template>
-  <div id="my-projects">
-    <h1>my projects</h1>
+  <section id="my-projects">
     <b-button-group size="sm">
       <b-button @click="setTag('cpp')">C++</b-button>
       <b-button @click="setTag('allegro')">Allegro</b-button>
@@ -78,9 +77,7 @@
         <a class="card-link" href="https://github.com/lucasltinoco/my-portfolio"></a>
       </div>
     </div>
-
-    <a href="#contact-me" class="fa fa-chevron-down"></a>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -116,14 +113,6 @@ export default {
 </script>
 
 <style>
-#my-projects {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-}
-
 .projects {
   display: flex;
   flex-wrap: wrap;

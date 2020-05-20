@@ -1,6 +1,5 @@
 <template>
-  <div id="contact-me">
-    <h1>contact me!</h1>
+  <section id="contact-me">
     <b-form @submit="onSubmit" @reset="onReset">
       <b-form-group id="input-group-1" label="Subject:" label-for="input-1">
         <b-form-input
@@ -26,8 +25,7 @@
       <b-button type="submit" variant="primary">Send me!</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
-    <a href="#home" class="fa fa-chevron-up"></a>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -57,18 +55,5 @@ export default {
 </script>
 
 <style>
-#contact-me {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-}
 
-.fa-chevron-up,
-.fa-chevron-up:hover {
-  margin-bottom: 10vh;
-  text-decoration: none;
-  color: #000;
-}
 </style>

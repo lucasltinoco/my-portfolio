@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Header />
     <Home />
     <WhoIAm />
     <WhatIDo />
@@ -16,6 +17,7 @@ import WhatIDo from "./components/WhatIDo";
 import MyProjects from "./components/MyProjects";
 import ContactMe from "./components/ContactMe";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 export default {
   name: "App",
@@ -25,7 +27,8 @@ export default {
     WhatIDo,
     MyProjects,
     ContactMe,
-    Footer
+    Footer,
+    Header
   }
 };
 </script>
@@ -37,43 +40,42 @@ export default {
   font-family: "Jost", sans-serif;
 }
 
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0px;
-  color: #000;
-  background: linear-gradient(to left, #ece9e6, #ffffff);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin: 0px;
-  width: 75vw;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
   display: flex;
+  height: 100vh;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-h1 {
-  position: sticky;
-  top: 5vh;
-  font-size: 2.5rem;
-  font-weight: 900;
-  z-index: 1;
-}
-
-.fa-chevron-down,
-.fa-chevron-down:hover {
-  margin-bottom: 10vh;
-  text-decoration: none;
+  line-height: 1.5;
   color: #000;
+  font-size: 59.8%;
+  background: linear-gradient(to left, #ece9e6, #ffffff);
+}
+
+section {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background-size: cover;
+  scroll-snap-align: center;
 }
 </style>
