@@ -1,5 +1,5 @@
 <template>
-  <div class="smooth">
+  <!-- <div class="smooth"> -->
     <header>
       <h1>lucas l. tinoco</h1>
       <div class="nav">
@@ -10,7 +10,7 @@
           <a href="#contact-me">contact me</a>
       </div>
     </header>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -20,13 +20,13 @@ export default {
 </script>
 
 <style>
-.smooth {
+/* .smooth {
   position: relative;
   width: 100%;
   height: 100%;
   scroll-behavior: smooth;
   overflow-y: hidden;
-}
+} */
 
 header {
   position: fixed;

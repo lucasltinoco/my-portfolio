@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Home />
     <Header />
+    <Home />
     <WhoIAm />
     <WhatIDo />
     <MyProjects />
