@@ -30,7 +30,7 @@ export default {
 
 header {
   position: fixed;
-  top: 0px;
+  top: 5px;
   z-index: 1;
   display: flex;
   width: 100%;
@@ -45,7 +45,8 @@ header h1 {
   justify-content: flex-start;
   align-items: flex-end;
   padding: 0px;
-  margin: 0px 0px 0px 25px;
+  margin: 0px 0px 0px 50px;
+  font-weight: bold;
 }
 
 header .nav {
@@ -54,10 +55,9 @@ header .nav {
   list-style: none;
   display: flex;
   width: 100%;
-  /* justify-content: flex-end; */
   justify-content: space-between;
   align-items: flex-end;
-  margin-right: 25px;
+  margin-right: 50px;
 }
 
 header .nav a {
