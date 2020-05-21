@@ -25,6 +25,7 @@
       <b-button type="submit" variant="primary">Send me!</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
+    <footer class="footer">© Lucas Tinoco 2020</footer>
   </section>
 </template>
 
@@ -42,8 +43,7 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-      document.location.href = 
-        `mailto:lucasltinoco@gmail.com?subject=${this.form.subject}&body=${this.form.body}`
+      document.location.href = `mailto:lucasltinoco@gmail.com?subject=${this.form.subject}&body=${this.form.body}`;
     },
     onReset(e) {
       e.preventDefault();
@@ -55,5 +55,9 @@ export default {
 </script>
 
 <style>
-
+.footer {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.75em;
+}
 </style>

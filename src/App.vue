@@ -6,7 +6,6 @@
     <WhatIDo />
     <MyProjects />
     <ContactMe />
-    <Footer />
   </div>
 </template>
 
@@ -16,7 +15,6 @@ import WhoIAm from "./components/WhoIAm";
 import WhatIDo from "./components/WhatIDo";
 import MyProjects from "./components/MyProjects";
 import ContactMe from "./components/ContactMe";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 export default {
@@ -27,8 +25,34 @@ export default {
     WhatIDo,
     MyProjects,
     ContactMe,
-    Footer,
     Header
+  },
+  mounted() {
+    const url = location.href
+    const baseUrl = "http://localhost:8080/"
+    
+    switch (url) {
+      case baseUrl:
+        location.href = `${baseUrl}#home`
+        break
+      case `${baseUrl}#home`:
+        location.href = `${baseUrl}#home`
+        break
+      case `${baseUrl}#who-i-am`:
+        location.href = `${baseUrl}#who-i-am`
+        break
+      case `${baseUrl}#what-i-do`:
+        location.href = `${baseUrl}#what-i-do`
+        break
+      case `${baseUrl}#my-projects`:
+        location.href = `${baseUrl}#my-projects`
+        break
+      case `${baseUrl}#contact-me`:
+        location.href = `${baseUrl}#contact-me`
+        break
+      default:
+        location.href = `${baseUrl}#home`
+    }
   }
 };
 </script>
