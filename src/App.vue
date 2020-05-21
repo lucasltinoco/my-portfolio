@@ -27,43 +27,48 @@ export default {
     ContactMe,
     Header
   },
+  data: function() {
+    return {
+      baseUrl: "http://localhost:8080/",
+      pages: ['home', 'who-i-am', 'what-i-do', 'my-projects', 'contact-me']
+    }
+  },
   methods: {
     redirectUrl() {
       const url = location.href;
-      const baseUrl = "http://localhost:8080/";
 
       switch (url) {
-        case baseUrl:
-          location.href = `${baseUrl}#home`;
+        case this.baseUrl:
+          location.href = `${this.baseUrl}#home`;
           break;
-        case `${baseUrl}#home`:
-          location.href = `${baseUrl}#home`;
+        case `${this.baseUrl}#home`:
+          location.href = `${this.baseUrl}#home`;
           break;
-        case `${baseUrl}#who-i-am`:
-          location.href = `${baseUrl}#who-i-am`;
+        case `${this.baseUrl}#who-i-am`:
+          location.href = `${this.baseUrl}#who-i-am`;
           break;
-        case `${baseUrl}#what-i-do`:
-          location.href = `${baseUrl}#what-i-do`;
+        case `${this.baseUrl}#what-i-do`:
+          location.href = `${this.baseUrl}#what-i-do`;
           break;
-        case `${baseUrl}#my-projects`:
-          location.href = `${baseUrl}#my-projects`;
+        case `${this.baseUrl}#my-projects`:
+          location.href = `${this.baseUrl}#my-projects`;
           break;
-        case `${baseUrl}#contact-me`:
-          location.href = `${baseUrl}#contact-me`;
+        case `${this.baseUrl}#contact-me`:
+          location.href = `${this.baseUrl}#contact-me`;
           break;
         default:
-          location.href = `${baseUrl}#home`;
+          location.href = `${this.baseUrl}#home`;
       }
     }, 
     monitorScroll(scrollableElement) {
       setInterval(() => {
         scrollableElement.addEventListener(
           "wheel",
-          this.findScrollDirection
+          this.findDelta
         );
       }, 500)
     },
-    findScrollDirection(event) {
+    findDelta(event) {
       let delta;
       if (event.wheelDelta) {
         delta = event.wheelDelta;
@@ -74,25 +79,18 @@ export default {
     },
     movePage(delta) {
       const url = location.href
-      const baseUrl = "http://localhost:8080/";
-      const up = delta > 0 ? true : false
-      switch (url) {
-        case `${baseUrl}#home`:
-          up ? null : location.href = `${baseUrl}#who-i-am`
-          break;
-        case `${baseUrl}#who-i-am`:
-          up ? location.href = `${baseUrl}#home` : location.href = `${baseUrl}#what-i-do`
-          break;
-        case `${baseUrl}#what-i-do`:
-          up ? location.href = `${baseUrl}#who-i-am` : location.href = `${baseUrl}#my-projects`
-          break;
-        case `${baseUrl}#my-projects`:
-          up ? location.href = `${baseUrl}#what-i-do` : location.href = `${baseUrl}#contact-me`
-          break;
-        case `${baseUrl}#contact-me`:
-          up ? location.href = `${baseUrl}#my-projects` : null
-          break;
-        default:
+      const page = url.split('#')[1]
+      const pageIndex = this.pages.indexOf(page)
+      const direction = delta > 0 ? 'up' : 'down'
+
+      if (direction == 'up') {
+        pageIndex == 0 ?
+          '' :
+          location.href = `${this.baseUrl}#${this.pages[pageIndex - 1]}`
+      } else if (direction == 'down') {
+        pageIndex == this.pages.length - 1 ?
+          '' :
+          location.href = `${this.baseUrl}#${this.pages[pageIndex + 1]}`
       }
     }
   },
