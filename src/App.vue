@@ -27,32 +27,78 @@ export default {
     ContactMe,
     Header
   },
-  mounted() {
-    const url = location.href
-    const baseUrl = "http://localhost:8080/"
-    
-    switch (url) {
-      case baseUrl:
-        location.href = `${baseUrl}#home`
-        break
-      case `${baseUrl}#home`:
-        location.href = `${baseUrl}#home`
-        break
-      case `${baseUrl}#who-i-am`:
-        location.href = `${baseUrl}#who-i-am`
-        break
-      case `${baseUrl}#what-i-do`:
-        location.href = `${baseUrl}#what-i-do`
-        break
-      case `${baseUrl}#my-projects`:
-        location.href = `${baseUrl}#my-projects`
-        break
-      case `${baseUrl}#contact-me`:
-        location.href = `${baseUrl}#contact-me`
-        break
-      default:
-        location.href = `${baseUrl}#home`
+  methods: {
+    redirectUrl() {
+      const url = location.href;
+      const baseUrl = "http://localhost:8080/";
+
+      switch (url) {
+        case baseUrl:
+          location.href = `${baseUrl}#home`;
+          break;
+        case `${baseUrl}#home`:
+          location.href = `${baseUrl}#home`;
+          break;
+        case `${baseUrl}#who-i-am`:
+          location.href = `${baseUrl}#who-i-am`;
+          break;
+        case `${baseUrl}#what-i-do`:
+          location.href = `${baseUrl}#what-i-do`;
+          break;
+        case `${baseUrl}#my-projects`:
+          location.href = `${baseUrl}#my-projects`;
+          break;
+        case `${baseUrl}#contact-me`:
+          location.href = `${baseUrl}#contact-me`;
+          break;
+        default:
+          location.href = `${baseUrl}#home`;
+      }
+    }, 
+    monitorScroll(scrollableElement) {
+      setInterval(() => {
+        scrollableElement.addEventListener(
+          "wheel",
+          this.findScrollDirection
+        );
+      }, 500)
+    },
+    findScrollDirection(event) {
+      let delta;
+      if (event.wheelDelta) {
+        delta = event.wheelDelta;
+      } else {
+        delta = -1 * event.deltaY;
+      }
+      this.movePage(delta)
+    },
+    movePage(delta) {
+      const url = location.href
+      const baseUrl = "http://localhost:8080/";
+      const up = delta > 0 ? true : false
+      switch (url) {
+        case `${baseUrl}#home`:
+          up ? null : location.href = `${baseUrl}#who-i-am`
+          break;
+        case `${baseUrl}#who-i-am`:
+          up ? location.href = `${baseUrl}#home` : location.href = `${baseUrl}#what-i-do`
+          break;
+        case `${baseUrl}#what-i-do`:
+          up ? location.href = `${baseUrl}#who-i-am` : location.href = `${baseUrl}#my-projects`
+          break;
+        case `${baseUrl}#my-projects`:
+          up ? location.href = `${baseUrl}#what-i-do` : location.href = `${baseUrl}#contact-me`
+          break;
+        case `${baseUrl}#contact-me`:
+          up ? location.href = `${baseUrl}#my-projects` : null
+          break;
+        default:
+      }
     }
+  },
+  mounted() {
+    this.redirectUrl();
+    this.monitorScroll(document.getElementById("app"))
   }
 };
 </script>
