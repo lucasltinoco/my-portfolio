@@ -36,28 +36,14 @@ export default {
   methods: {
     redirectUrl() {
       const url = location.href;
+      const page = url.split('#')[1]
 
-      switch (url) {
-        case this.baseUrl:
-          location.href = `${this.baseUrl}#home`;
-          break;
-        case `${this.baseUrl}#home`:
-          location.href = `${this.baseUrl}#home`;
-          break;
-        case `${this.baseUrl}#who-i-am`:
-          location.href = `${this.baseUrl}#who-i-am`;
-          break;
-        case `${this.baseUrl}#what-i-do`:
-          location.href = `${this.baseUrl}#what-i-do`;
-          break;
-        case `${this.baseUrl}#my-projects`:
-          location.href = `${this.baseUrl}#my-projects`;
-          break;
-        case `${this.baseUrl}#contact-me`:
-          location.href = `${this.baseUrl}#contact-me`;
-          break;
-        default:
-          location.href = `${this.baseUrl}#home`;
+      if (url == this.baseUrl) {
+        location.href = `${this.baseUrl}#${this.pages[0]}`
+      } else if (url == `${this.baseUrl}#${page}`) {
+        location.href = `${this.baseUrl}#${page}`
+      } else {
+        location.href = `${this.baseUrl}#${this.pages[0]}`
       }
     }, 
     monitorScroll(scrollableElement) {
