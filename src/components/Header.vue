@@ -1,16 +1,14 @@
 <template>
-  <!-- <div class="smooth"> -->
-    <header>
-      <h1>lucas l. tinoco</h1>
-      <div class="nav">
-          <a href="#home">home</a>
-          <a href="#who-i-am">who i am</a>
-          <a href="#what-i-do">what i do</a>
-          <a href="#my-projects">my projects</a>
-          <a href="#contact-me">contact me</a>
-      </div>
-    </header>
-  <!-- </div> -->
+  <header>
+    <h1>lucas l. tinoco</h1>
+    <div class="nav">
+      <a href="#home">home</a>
+      <a href="#who-i-am">who i am</a>
+      <a href="#what-i-do">what i do</a>
+      <a href="#my-projects">my projects</a>
+      <a href="#contact-me">contact me</a>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -20,14 +18,6 @@ export default {
 </script>
 
 <style>
-/* .smooth {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  scroll-behavior: smooth;
-  overflow-y: hidden;
-} */
-
 header {
   position: fixed;
   top: 5px;
@@ -77,7 +67,8 @@ header .nav a::after {
   transition: all 0.2s linear;
 }
 
-header .nav a:hover::after {
+header .nav a:hover::after,
+header .nav a.currentPage::after {
   width: 100%;
   background-color: #000;
 }

@@ -81,10 +81,29 @@ export default {
           : (location.href = `${this.baseUrl}#${this.pages[pageIndex + 1]}`);
       }
       this.lastAnimation = timeNow;
+    },
+    highlightNavItem() {
+      const url = location.href;
+      const page = url.split("#")[1];
+      const pageIndex = this.pages.indexOf(page);
+
+      for (let i = 0; i < this.pages.length; i++) {
+        pageIndex == i
+          ? document
+              .querySelector(`.nav a:nth-child(${i + 1})`)
+              .classList.add("currentPage")
+          : document
+              .querySelector(`.nav a:nth-child(${i + 1})`)
+              .classList.remove("currentPage");
+      }
     }
   },
   mounted() {
     this.redirectUrl();
+    this.highlightNavItem();
+    window.addEventListener("hashchange", () => {
+      this.highlightNavItem();
+    });
     this.monitorScroll(document.getElementById("app"));
   }
 };
