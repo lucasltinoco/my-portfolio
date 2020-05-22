@@ -47,6 +47,7 @@ export default {
       } else {
         location.href = `${this.baseUrl}#${this.pages[0]}`;
       }
+      this.highlightNavItem();
     },
     monitorScroll(scrollableElement) {
       scrollableElement.addEventListener("wheel", this.findDelta);
@@ -100,7 +101,6 @@ export default {
   },
   mounted() {
     this.redirectUrl();
-    this.highlightNavItem();
     window.addEventListener("hashchange", () => {
       this.highlightNavItem();
     });
