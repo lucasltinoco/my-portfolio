@@ -30,7 +30,9 @@ export default {
   data: function() {
     return {
       baseUrl: "http://localhost:8080/",
-      pages: ["home", "who-i-am", "what-i-do", "my-projects", "contact-me"]
+      pages: ["home", "who-i-am", "what-i-do", "my-projects", "contact-me"],
+      lastAnimation: 0,
+      quietPeriod: 500
     };
   },
   methods: {
@@ -47,24 +49,27 @@ export default {
       }
     },
     monitorScroll(scrollableElement) {
-      setInterval(() => {
-        scrollableElement.addEventListener("wheel", this.findDelta);
-      }, 500);
+      scrollableElement.addEventListener("wheel", this.findDelta);
     },
     findDelta(event) {
       let delta;
-      if (event.wheelDelta) {
-        delta = event.wheelDelta;
-      } else {
-        delta = -1 * event.deltaY;
-      }
-      this.movePage(delta);
+      event.preventDefault();
+      event.wheelDelta
+        ? (delta = event.wheelDelta)
+        : (delta = -1 * event.deltaY);
+      this.movePage(event, delta);
     },
-    movePage(delta) {
+    movePage(event, delta) {
       const url = location.href;
       const page = url.split("#")[1];
       const pageIndex = this.pages.indexOf(page);
       const direction = delta > 0 ? "up" : "down";
+      let timeNow = new Date().getTime();
+
+      if (timeNow - this.lastAnimation < this.quietPeriod) {
+        event.preventDefault();
+        return;
+      }
 
       if (direction === "up") {
         pageIndex === 0
@@ -75,6 +80,7 @@ export default {
           ? ""
           : (location.href = `${this.baseUrl}#${this.pages[pageIndex + 1]}`);
       }
+      this.lastAnimation = timeNow;
     }
   },
   mounted() {
