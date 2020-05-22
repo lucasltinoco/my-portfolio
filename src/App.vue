@@ -30,29 +30,26 @@ export default {
   data: function() {
     return {
       baseUrl: "http://localhost:8080/",
-      pages: ['home', 'who-i-am', 'what-i-do', 'my-projects', 'contact-me']
-    }
+      pages: ["home", "who-i-am", "what-i-do", "my-projects", "contact-me"]
+    };
   },
   methods: {
     redirectUrl() {
       const url = location.href;
-      const page = url.split('#')[1]
+      const page = url.split("#")[1];
 
-      if (url == this.baseUrl) {
-        location.href = `${this.baseUrl}#${this.pages[0]}`
-      } else if (url == `${this.baseUrl}#${page}`) {
-        location.href = `${this.baseUrl}#${page}`
+      if (url === this.baseUrl) {
+        location.href = `${this.baseUrl}#${this.pages[0]}`;
+      } else if (url === `${this.baseUrl}#${page}`) {
+        location.href = `${this.baseUrl}#${page}`;
       } else {
-        location.href = `${this.baseUrl}#${this.pages[0]}`
+        location.href = `${this.baseUrl}#${this.pages[0]}`;
       }
-    }, 
+    },
     monitorScroll(scrollableElement) {
       setInterval(() => {
-        scrollableElement.addEventListener(
-          "wheel",
-          this.findDelta
-        );
-      }, 500)
+        scrollableElement.addEventListener("wheel", this.findDelta);
+      }, 500);
     },
     findDelta(event) {
       let delta;
@@ -61,28 +58,28 @@ export default {
       } else {
         delta = -1 * event.deltaY;
       }
-      this.movePage(delta)
+      this.movePage(delta);
     },
     movePage(delta) {
-      const url = location.href
-      const page = url.split('#')[1]
-      const pageIndex = this.pages.indexOf(page)
-      const direction = delta > 0 ? 'up' : 'down'
+      const url = location.href;
+      const page = url.split("#")[1];
+      const pageIndex = this.pages.indexOf(page);
+      const direction = delta > 0 ? "up" : "down";
 
-      if (direction == 'up') {
-        pageIndex == 0 ?
-          '' :
-          location.href = `${this.baseUrl}#${this.pages[pageIndex - 1]}`
-      } else if (direction == 'down') {
-        pageIndex == this.pages.length - 1 ?
-          '' :
-          location.href = `${this.baseUrl}#${this.pages[pageIndex + 1]}`
+      if (direction === "up") {
+        pageIndex === 0
+          ? ""
+          : (location.href = `${this.baseUrl}#${this.pages[pageIndex - 1]}`);
+      } else if (direction === "down") {
+        pageIndex === this.pages.length - 1
+          ? ""
+          : (location.href = `${this.baseUrl}#${this.pages[pageIndex + 1]}`);
       }
     }
   },
   mounted() {
     this.redirectUrl();
-    this.monitorScroll(document.getElementById("app"))
+    this.monitorScroll(document.getElementById("app"));
   }
 };
 </script>
