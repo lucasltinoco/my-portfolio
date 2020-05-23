@@ -23,6 +23,6 @@ export default {
 #who-i-am a,
 #who-i-am a:hover {
   text-decoration: none;
-  color: #000;
+  color: var(--secondary-txt-color);
 }
 </style>

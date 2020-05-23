@@ -27,6 +27,6 @@ export default {
 #what-i-do a,
 #what-i-do a:hover {
   text-decoration: none;
-  color: #000;
+  color: var(--secondary-txt-color);
 }
 </style>

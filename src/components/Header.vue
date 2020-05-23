@@ -26,7 +26,7 @@ header {
   width: 100%;
   min-height: 59px;
   font-size: 1rem;
-  mix-blend-mode: luminosity;
+  color: var(--primary-txt-color);
 }
 
 header h1 {
@@ -55,6 +55,7 @@ header .nav a {
   text-decoration: none;
   font-weight: 700;
   font-size: 1.2rem;
+  color: var(--primary-txt-color);
 }
 
 header .nav a::after {
@@ -70,6 +71,6 @@ header .nav a::after {
 header .nav a:hover::after,
 header .nav a.currentPage::after {
   width: 100%;
-  background-color: #000;
+  background-color: var(--primary-txt-color);
 }
 </style>

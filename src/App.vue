@@ -6,16 +6,18 @@
     <WhatIDo />
     <MyProjects />
     <ContactMe />
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from "./components/Header";
 import Home from "./components/Home";
 import WhoIAm from "./components/WhoIAm";
 import WhatIDo from "./components/WhatIDo";
 import MyProjects from "./components/MyProjects";
 import ContactMe from "./components/ContactMe";
-import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default {
   name: "App",
@@ -25,7 +27,8 @@ export default {
     WhatIDo,
     MyProjects,
     ContactMe,
-    Header
+    Header,
+    Footer
   },
   data: function() {
     return {
@@ -111,6 +114,19 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap");
+@import url("https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css");
+
+.theme-light {
+  --bg-color: linear-gradient(to left, #ece9e6, #ffffff);
+  --primary-txt-color: rgb(12, 12, 12);
+  --secondary-txt-color: rgb(28, 37, 34);
+}
+
+.theme-dark {
+  --bg-color: #000;
+  --primary-txt-color: #fff;
+  --secondary-txt-color: #fff;
+}
 
 * {
   font-family: "Jost", sans-serif;
@@ -137,9 +153,9 @@ body {
   height: 100vh;
   flex-direction: column;
   line-height: 1.5;
-  color: #000;
+  color: var(--secondary-txt-color);
   font-size: 59.8%;
-  background: linear-gradient(to left, #ece9e6, #ffffff);
+  background: var(--bg-color);
 }
 
 section {

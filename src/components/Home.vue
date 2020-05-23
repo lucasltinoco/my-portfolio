@@ -8,13 +8,13 @@
     </p>
     <div class="social">
       <a href="https://www.linkedin.com/in/lucas-tinoco-783420194/">
-        <i class="fa fa-linkedin"></i>
+        <i class="im im-linkedin"></i>
       </a>
       <a href="https://github.com/lucasltinoco">
-        <i class="fa fa-github"></i>
+        <i class="im im-github"></i>
       </a>
       <a href="mailto:lucasltinoco@gmail.com">
-        <i class="fa fa-envelope"></i>
+        <i class="im im-newsletter"></i>
       </a>
     </div>
   </section>
@@ -56,18 +56,19 @@ export default {
 }
 
 .adjective {
-  color: green;
+  color: var(--primary-txt-color);
 }
-
 .social {
   display: flex;
   flex-direction: row;
-  font-size: 1em;
 }
 
 .social i {
-  color: black;
+  color: var(--secondary-txt-color);
+  font-size: 18px;
   text-decoration: none;
   padding: 0 5px;
+  justify-content: center;
+  align-items: flex-end;
 }
 </style>
