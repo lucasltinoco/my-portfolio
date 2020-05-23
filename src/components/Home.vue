@@ -57,6 +57,7 @@ export default {
 
 .adjective {
   color: var(--primary-txt-color);
+  transition: 0.5s;
 }
 .social {
   display: flex;
@@ -65,6 +66,7 @@ export default {
 
 .social i {
   color: var(--secondary-txt-color);
+  transition: 0.5s;
   font-size: 18px;
   text-decoration: none;
   padding: 0 5px;

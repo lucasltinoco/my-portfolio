@@ -117,15 +117,15 @@ export default {
 @import url("https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css");
 
 .theme-light {
-  --bg-color: linear-gradient(to left, #ece9e6, #ffffff);
+  --bg-color: #ece9e6;
   --primary-txt-color: rgb(12, 12, 12);
   --secondary-txt-color: rgb(28, 37, 34);
 }
 
 .theme-dark {
-  --bg-color: #000;
-  --primary-txt-color: #fff;
-  --secondary-txt-color: #fff;
+  --bg-color: #232526;
+  --primary-txt-color: rgb(243, 236, 236);
+  --secondary-txt-color: rgb(230, 215, 215);
 }
 
 * {
@@ -156,6 +156,7 @@ body {
   color: var(--secondary-txt-color);
   font-size: 59.8%;
   background: var(--bg-color);
+  transition: 0.5s;
 }
 
 section {

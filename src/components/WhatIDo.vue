@@ -28,5 +28,6 @@ export default {
 #what-i-do a:hover {
   text-decoration: none;
   color: var(--secondary-txt-color);
+  transition: 0.5s;
 }
 </style>

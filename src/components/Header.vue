@@ -26,7 +26,6 @@ header {
   width: 100%;
   min-height: 59px;
   font-size: 1rem;
-  color: var(--primary-txt-color);
 }
 
 header h1 {
@@ -37,6 +36,8 @@ header h1 {
   padding: 0px;
   margin: 0px 0px 0px 50px;
   font-weight: bold;
+  color: var(--primary-txt-color);
+  transition: 0.5s;
 }
 
 header .nav {
@@ -55,7 +56,8 @@ header .nav a {
   text-decoration: none;
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--primary-txt-color);
+  color: var(--secondary-txt-color);
+  transition: 0.5s;
 }
 
 header .nav a::after {
@@ -65,7 +67,7 @@ header .nav a::after {
   content: "";
   width: 0;
   height: 3px;
-  transition: all 0.2s linear;
+  transition: all 0.5s linear;
 }
 
 header .nav a:hover::after,
