@@ -1,13 +1,21 @@
 <template>
   <header>
     <h1>lucas l. tinoco</h1>
-    <div class="nav">
+    <div  class="nav">
       <a href="#home">home</a>
       <a href="#who-i-am">who i am</a>
       <a href="#what-i-do">what i do</a>
       <a href="#my-projects">my projects</a>
       <a href="#contact-me">contact me</a>
     </div>
+    <!--<div v-else-if="this.lang === 'por'" class="nav">
+      <a href="#home">início</a>
+      <a href="#who-i-am">quem eu sou</a>
+      <a href="#what-i-do">o que faço</a>
+      <a href="#my-projects">meus projetos</a>
+      <a href="#contact-me">entre em contato</a>
+    </div>-->
+    
   </header>
 </template>
 
@@ -20,7 +28,7 @@ export default {
 <style>
 header {
   position: fixed;
-  top: 5px;
+  top: 15px;
   z-index: 1;
   display: flex;
   width: 100%;
@@ -41,14 +49,13 @@ header h1 {
 }
 
 header .nav {
-  margin: 0;
+  margin: 0px 50px 0px 0px;
   padding: 0;
   list-style: none;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: flex-end;
-  margin-right: 50px;
 }
 
 header .nav a {

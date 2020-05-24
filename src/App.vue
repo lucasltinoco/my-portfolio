@@ -6,7 +6,7 @@
     <WhatIDo />
     <MyProjects />
     <ContactMe />
-    <Footer />
+    <Toggles />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import WhoIAm from "./components/WhoIAm";
 import WhatIDo from "./components/WhatIDo";
 import MyProjects from "./components/MyProjects";
 import ContactMe from "./components/ContactMe";
-import Footer from "./components/Footer";
+import Toggles from "./components/Toggles";
 
 export default {
   name: "App",
@@ -28,7 +28,7 @@ export default {
     MyProjects,
     ContactMe,
     Header,
-    Footer
+    Toggles
   },
   data: function() {
     return {
