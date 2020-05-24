@@ -10,7 +10,7 @@
     </div>
     <div v-else-if="lang === 'por'" class="nav">
       <a href="#home">início</a>
-      <a href="#who-i-am">quem eu sou</a>
+      <a href="#who-i-am">quem sou eu</a>
       <a href="#what-i-do">o que faço</a>
       <a href="#my-projects">meus projetos</a>
       <a href="#contact-me">entre em contato</a>
