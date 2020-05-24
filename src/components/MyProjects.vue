@@ -16,64 +16,62 @@
     </b-button-group>
     <div class="projects">
       <div class="card proerd" v-show="tags.cpp || tags.allegro || tags.all">
-        <div class="card-category">Run & Jump Game</div>
+        <div v-if="lang === 'eng'" class="card-category">Run & Jump Game</div>
+        <div v-else-if="lang === 'por'" class="card-category">Proerd Game</div>
         <a class="card-link" href="https://github.com/lucasltinoco/proerd-game"></a>
       </div>
 
       <div class="card knowledge" v-show="tags.vue || tags.bootstrap || tags.mongodb || tags.postgresql || tags.all">
-        <div class="card-category">Knowledge Base</div>
+        <div v-if="lang === 'eng'" class="card-category">Knowledge Base</div>
+        <div v-else-if="lang === 'por'" class="card-category">Base de Conhecimento</div>
         <a class="card-link" href="https://github.com/lucasltinoco/knowledge"></a>
       </div>
 
       <div class="card gallery" v-show="tags.bootstrap || tags.jquery || tags.webpack || tags.all">
-        <div class="card-category">Trip Gallery</div>
-        <a
-          class="card-link"
-          href="https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria"
-        ></a>
+        <div v-if="lang === 'eng'" class="card-category">Trip Gallery</div>
+        <div v-else-if="lang === 'por'" class="card-category">Galeria de Viagens</div>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria"></a>
       </div>
 
       <div class="card react-calc" v-show="tags.react || tags.all">
-        <div class="card-category">React Calculator</div>
-        <a
-          class="card-link"
-          href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/calculadora"
-        ></a>
+        <div v-if="lang === 'eng'" class="card-category">React Calculator</div>
+        <div v-else-if="lang === 'por'" class="card-category">Calculadora com React</div>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/calculadora"></a>
       </div>
 
       <div class="card react-crud" v-show="tags.react || tags.jsonserver || tags.all">
-        <div class="card-category">React CRUD</div>
+        <div v-if="lang === 'eng'" class="card-category">React CRUD</div>
+        <div v-else-if="lang === 'por'" class="card-category">CRUD com React</div>        
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/crud"></a>
       </div>
 
       <div class="card qr-code" v-show="tags.vue || tags.all">
-        <div class="card-category">QR Code Generator</div>
+        <div v-if="lang === 'eng'" class="card-category">QR Code Generator</div>
+        <div v-else-if="lang === 'por'" class="card-category">Gerador de QR Code</div>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/qrcode"></a>
       </div>
 
       <div class="card vue-calc" v-show="tags.vue || tags.all">
-        <div class="card-category">Vue Calculator</div>
-        <a
-          class="card-link"
-          href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/calculator"
-        ></a>
+        <div v-if="lang === 'eng'" class="card-category">Vue Calculator</div>
+        <div v-else-if="lang === 'por'" class="card-category">Calculadora com Vue</div>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/calculator"></a>
       </div>
 
       <div class="card monty-hall" v-show="tags.vue || tags.all">
-        <div class="card-category">Monty Hall Problem</div>
-        <a
-          class="card-link"
-          href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/montyhall"
-        ></a>
+        <div v-if="lang === 'eng'" class="card-category">Monty Hall Problem</div>
+        <div v-else-if="lang === 'por'" class="card-category">Problema de Monty Hall</div>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/montyhall"></a>
       </div>
 
       <div class="card angular-crud" v-show="tags.angular || tags.jsonserver || tags.all">
-        <div class="card-category">Angular Crud</div>
+        <div v-if="lang === 'eng'" class="card-category">Angular CRUD</div>
+        <div v-else-if="lang === 'por'" class="card-category">CRUD com Angular</div>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/angular"></a>
       </div>
 
       <div class="card portfolio" v-show="tags.vue || tags.bootstrap || tags.all">
-        <div class="card-category">Portfolio</div>
+        <div v-if="lang === 'eng'" class="card-category">Portfolio</div>
+        <div v-else-if="lang === 'por'" class="card-category">Portfólio</div>
         <a class="card-link" href="https://github.com/lucasltinoco/my-portfolio"></a>
       </div>
     </div>
@@ -81,8 +79,11 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "MyProjects",
+  computed: mapState(["lang"]),
   data: function() {
     return {
       tags: {
@@ -137,6 +138,7 @@ export default {
   position: absolute;
   top: 10px;
   left: 10px;
+  right: 10px;
   font-size: 15px;
   font-weight: bold;
   text-transform: uppercase;

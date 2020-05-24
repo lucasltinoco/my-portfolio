@@ -1,27 +1,30 @@
 <template>
   <header>
     <h1>lucas l. tinoco</h1>
-    <div  class="nav">
+    <div v-if="lang == 'eng'" class="nav">
       <a href="#home">home</a>
       <a href="#who-i-am">who i am</a>
       <a href="#what-i-do">what i do</a>
       <a href="#my-projects">my projects</a>
       <a href="#contact-me">contact me</a>
     </div>
-    <!--<div v-else-if="this.lang === 'por'" class="nav">
+    <div v-else-if="lang === 'por'" class="nav">
       <a href="#home">início</a>
       <a href="#who-i-am">quem eu sou</a>
       <a href="#what-i-do">o que faço</a>
       <a href="#my-projects">meus projetos</a>
       <a href="#contact-me">entre em contato</a>
-    </div>-->
+    </div>
     
   </header>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
-  name: "Header"
+  name: "Header",
+  computed: mapState(["lang"])
 };
 </script>
 

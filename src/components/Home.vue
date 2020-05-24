@@ -1,10 +1,15 @@
 <template>
   <section id="home">
     <img src="../assets/imgs/avatar.png" alt="Avatar" />
-    <p>
+    <p v-if="lang === 'eng'">
       Hi! I'm a
-      <strong class="adjective">{{adjectives[counter]}}</strong>.
+      <strong class="adjective">{{adjectivesEng[counter]}}</strong>.
       <br />I create when it doesn't exist and fix when it doesn't work.
+    </p>
+    <p v-else-if="lang === 'por'">
+      Olá! Eu sou um
+      <strong class="adjective">{{adjectivesPor[counter]}}</strong>.
+      <br />Eu crio quando não existe e conserto quando não funciona.
     </p>
     <div class="social">
       <a href="https://www.linkedin.com/in/lucas-tinoco-783420194/">
@@ -21,11 +26,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: "Home",
+  computed: mapState(["lang"]),
   data: function() {
     return {
-      adjectives: ["maker", "reader", "dev", "baller"],
+      adjectivesEng: ["maker", "reader", "dev", "baller"],
+      adjectivesPor: ["maker", "leitor", "dev", "boleiro"],
       counter: 0
     };
   },

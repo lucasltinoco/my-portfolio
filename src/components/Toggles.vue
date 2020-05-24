@@ -3,18 +3,19 @@
     <a class="theme-toggler" @click="this.toggleTheme">
       <i class="im im-light-bulb"></i>
     </a>
-    <a class="lang-toggler" @click="this.toggleLang">
-      {{lang}}
-    </a>
+    <a class="lang-toggler" @click="this.toggleLang">{{buttonLang}}</a>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "Toggles",
+  computed: mapState(["lang"]),
   data: function () {
     return {
-      lang: ""
+      buttonLang: ''
     }
   },
   methods: {
@@ -29,7 +30,10 @@ export default {
     },
     setLang(langName) {
       localStorage.setItem("lang", langName);
-      this.lang = langName;
+      this.$store.commit("setLang", langName);
+      langName === "eng"
+        ? this.buttonLang = "por"
+        : this.buttonLang = "eng"
     },
     toggleLang() {
       localStorage.getItem("lang") === "eng"
@@ -41,10 +45,10 @@ export default {
     localStorage.getItem("theme") === "theme-dark"
       ? this.setTheme("theme-dark")
       : this.setTheme("theme-light");
-    
+
     localStorage.getItem("lang") === "eng"
       ? this.setLang("eng")
-      : this.setLang("por")
+      : this.setLang("por");
   }
 };
 </script>
@@ -76,6 +80,5 @@ export default {
   color: var(--secondary-txt-color);
   font-size: 30px;
   font-weight: bold;
-  transition: 0.5s;
 }
 </style>
