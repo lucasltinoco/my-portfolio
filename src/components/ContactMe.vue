@@ -1,56 +1,31 @@
 <template>
   <section id="contact-me">
-    <b-form v-if="lang === 'eng'" @submit="onSubmit" @reset="onReset">
-      <b-form-group id="input-group-1" label="Subject:" label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="form.subject"
-          type="subject"
-          required
-          placeholder="Enter subject"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-2" label="Text:" label-for="input-2">
-        <b-form-textarea
-          id="input-2"
-          v-model="form.body"
-          required
-          placeholder="Enter text"
-          rows="6"
-          max-rows="12"
-        ></b-form-textarea>
-      </b-form-group>
-
-      <b-button type="submit" variant="primary">Send me!</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
-    </b-form>
-
-    <b-form v-else-if="lang === 'por'" @submit="onSubmit" @reset="onReset">
-      <b-form-group id="input-group-1" label="Assunto:" label-for="input-1">
-        <b-form-input
-          id="input-1"
-          v-model="form.subject"
-          type="subject"
-          required
-          placeholder="Insira o Assunto"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-2" label="Texto:" label-for="input-2">
-        <b-form-textarea
-          id="input-2"
-          v-model="form.body"
-          required
-          placeholder="Insira o Texto"
-          rows="6"
-          max-rows="12"
-        ></b-form-textarea>
-      </b-form-group>
-
-      <b-button type="submit" variant="primary">Envie-me!</b-button>
-      <b-button type="reset" variant="danger">Resete</b-button>
-    </b-form>
+    <form v-if="lang === 'eng'" class="form">
+      <label for="subject">Subject:</label>
+      <br />
+      <input type="text" id="subject" name="subject" placeholder="Enter subject..." v-model="form.subject"/>
+      <br />
+      <br />
+      <label for="text">Text:</label>
+      <br />
+      <textarea type="text" id="text" name="text" placeholder="Enter text..." v-model="form.body"></textarea>
+      <br />
+      <input type="submit" value="Submit" id="submit" @click="onSubmit"/>
+      <input type="reset" value="Reset" id="reset" @click="onReset"/>
+    </form>
+    <form v-else-if="lang === 'por'" class="form">
+      <label for="subject">Assunto:</label>
+      <br />
+      <input type="text" id="subject" name="subject" placeholder="Insira o assunto..." v-model="form.subject"/>
+      <br />
+      <br />
+      <label for="text">Texto:</label>
+      <br />
+      <textarea type="text" id="text" name="text" placeholder="Insira o texto..." v-model="form.body"></textarea>
+      <br />
+      <input type="submit" value="Submeter" id="submit" @click="onSubmit"/>
+      <input type="reset" value="Resetar" id="reset" @click="onReset"/>
+    </form>
     <footer class="footer">© Lucas Tinoco 2020</footer>
   </section>
 </template>
@@ -84,6 +59,64 @@ export default {
 </script>
 
 <style>
+.form {
+  width: 50vw;
+}
+
+#text,
+#subject {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid var(--secondary-txt-color);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--bg-color);
+  color: var(--primary-txt-color);
+  outline: none;
+  resize: none;
+  transition: 0.5s;
+  overflow: auto;
+}
+
+#subject {
+  height: 40px;
+}
+
+#text {
+  height: 250px;
+}
+
+#text::-webkit-scrollbar {
+  width: 12px;
+  cursor: default;
+}
+
+#text::-webkit-scrollbar-track {
+  background-color: var(--secondary-txt-color);
+  border-radius: 4px;
+}
+
+#text::-webkit-scrollbar-thumb {
+  background: var(--bg-color);
+  border: 2px solid var(--secondary-txt-color);
+  border-radius: 4px;
+}
+
+#submit,
+#reset {
+  background-color: var(--bg-color);
+  border: none;
+  color: var(--secondary-txt-color);
+  text-align: center;
+  text-decoration: none;
+  transition: 0.5s;
+  outline: none;
+  margin: 1px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .footer {
   position: absolute;
   bottom: 0;

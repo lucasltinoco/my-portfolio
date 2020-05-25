@@ -150,6 +150,7 @@ export default {
   transition: 0.5s;
   outline-color: var(--secondary-txt-color);
   margin: 1px;
+  cursor: pointer;
 }
 
 .flex {
@@ -163,7 +164,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  overflow-y: auto;
+  overflow-y: hidden;
   width: 80vw;
   justify-items: center;
   align-items: center;
@@ -185,6 +186,7 @@ export default {
 }
 
 .card {
+  position: relative;
   margin: 10px;
   height: 150px;
   width: 150px;
@@ -209,7 +211,8 @@ export default {
 .card-link,
 .card-link:hover {
   position: absolute;
-  margin: 0px;
+  top: 0;
+  left: 0;
   height: 150px;
   width: 150px;
   z-index: 2;
