@@ -61,8 +61,8 @@ export default {
 
 .theme-toggler {
   position: fixed;
-  left: 50px;
-  bottom: 50px;
+  left: 4vw;
+  bottom: 4vh;
   cursor: pointer;
   text-decoration: none;
 }
@@ -73,8 +73,8 @@ export default {
 
 .lang-toggler {
   position: fixed;
-  right: 50px;
-  bottom: 50px;
+  right: 4vw;
+  bottom: 4vh;
   cursor: pointer;
   text-decoration: none;
   color: var(--secondary-txt-color);

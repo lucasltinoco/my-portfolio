@@ -1,27 +1,31 @@
 <template>
   <section id="my-projects">
-    <b-button-group size="sm">
-      <b-button @click="setTag('cpp')">C++</b-button>
-      <b-button @click="setTag('allegro')">Allegro</b-button>
-      <b-button @click="setTag('vue')">Vue</b-button>
-      <b-button @click="setTag('bootstrap')">Bootstrap</b-button>
-      <b-button @click="setTag('mongodb')">MongoDB</b-button>
-      <b-button @click="setTag('postgresql')">PostgreSQL</b-button>
-      <b-button @click="setTag('jquery')">jQuery</b-button>
-      <b-button @click="setTag('webpack')">WebPack</b-button>
-      <b-button @click="setTag('react')">React</b-button>
-      <b-button @click="setTag('jsonserver')">JSON Server</b-button>
-      <b-button @click="setTag('angular')">Angular</b-button>
-      <b-button @click="setTag('all')">All</b-button>
-    </b-button-group>
-    <div class="projects">
+    <div class="tags">
+      <button @click="setTag('cpp')">C++</button>
+      <button @click="setTag('allegro')">Allegro</button>
+      <button @click="setTag('vue')">Vue</button>
+      <button @click="setTag('bootstrap')">Bootstrap</button>
+      <button @click="setTag('mongodb')">MongoDB</button>
+      <button @click="setTag('postgresql')">PostgreSQL</button>
+      <button @click="setTag('jquery')">jQuery</button>
+      <button @click="setTag('webpack')">WebPack</button>
+      <button @click="setTag('react')">React</button>
+      <button @click="setTag('jsonserver')">JSON Server</button>
+      <button @click="setTag('angular')">Angular</button>
+      <button v-if="lang === 'eng'" @click="setTag('all')">All</button>
+      <button v-else-if="lang === 'por'" @click="setTag('all')">Todos</button>
+    </div>
+    <div v-bind:class="{grid: this.tags.all, flex: !this.tags.all}">
       <div class="card proerd" v-show="tags.cpp || tags.allegro || tags.all">
         <div v-if="lang === 'eng'" class="card-category">Run & Jump Game</div>
         <div v-else-if="lang === 'por'" class="card-category">Proerd Game</div>
         <a class="card-link" href="https://github.com/lucasltinoco/proerd-game"></a>
       </div>
 
-      <div class="card knowledge" v-show="tags.vue || tags.bootstrap || tags.mongodb || tags.postgresql || tags.all">
+      <div
+        class="card knowledge"
+        v-show="tags.vue || tags.bootstrap || tags.mongodb || tags.postgresql || tags.all"
+      >
         <div v-if="lang === 'eng'" class="card-category">Knowledge Base</div>
         <div v-else-if="lang === 'por'" class="card-category">Base de Conhecimento</div>
         <a class="card-link" href="https://github.com/lucasltinoco/knowledge"></a>
@@ -30,18 +34,24 @@
       <div class="card gallery" v-show="tags.bootstrap || tags.jquery || tags.webpack || tags.all">
         <div v-if="lang === 'eng'" class="card-category">Trip Gallery</div>
         <div v-else-if="lang === 'por'" class="card-category">Galeria de Viagens</div>
-        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria"></a>
+        <a
+          class="card-link"
+          href="https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria"
+        ></a>
       </div>
 
       <div class="card react-calc" v-show="tags.react || tags.all">
         <div v-if="lang === 'eng'" class="card-category">React Calculator</div>
         <div v-else-if="lang === 'por'" class="card-category">Calculadora com React</div>
-        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/calculadora"></a>
+        <a
+          class="card-link"
+          href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/calculadora"
+        ></a>
       </div>
 
       <div class="card react-crud" v-show="tags.react || tags.jsonserver || tags.all">
         <div v-if="lang === 'eng'" class="card-category">React CRUD</div>
-        <div v-else-if="lang === 'por'" class="card-category">CRUD com React</div>        
+        <div v-else-if="lang === 'por'" class="card-category">CRUD com React</div>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/crud"></a>
       </div>
 
@@ -54,13 +64,19 @@
       <div class="card vue-calc" v-show="tags.vue || tags.all">
         <div v-if="lang === 'eng'" class="card-category">Vue Calculator</div>
         <div v-else-if="lang === 'por'" class="card-category">Calculadora com Vue</div>
-        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/calculator"></a>
+        <a
+          class="card-link"
+          href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/calculator"
+        ></a>
       </div>
 
       <div class="card monty-hall" v-show="tags.vue || tags.all">
         <div v-if="lang === 'eng'" class="card-category">Monty Hall Problem</div>
         <div v-else-if="lang === 'por'" class="card-category">Problema de Monty Hall</div>
-        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/montyhall"></a>
+        <a
+          class="card-link"
+          href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/montyhall"
+        ></a>
       </div>
 
       <div class="card angular-crud" v-show="tags.angular || tags.jsonserver || tags.all">
@@ -105,8 +121,8 @@ export default {
   methods: {
     setTag(tag) {
       for (let [key, value] of Object.entries(this.tags)) {
-        key == tag ? value = true : value = false
-        this.tags[key] = value
+        key == tag ? (value = true) : (value = false);
+        this.tags[key] = value;
       }
     }
   }
@@ -114,17 +130,58 @@ export default {
 </script>
 
 <style>
-.projects {
+.tags {
+  position: absolute;
+  bottom: 4vh;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 75vw;
+  flex-wrap: wrap;
+  width: 65vw;
 }
 
-.tags {
-  margin-top: 5vh;
+.tags button {
+  background-color: var(--bg-color);
+  border: none;
+  color: var(--secondary-txt-color);
+  text-align: center;
+  text-decoration: none;
+  transition: 0.5s;
+  outline-color: var(--secondary-txt-color);
+  margin: 1px;
+}
+
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  overflow-y: auto;
+  width: 80vw;
+  justify-items: center;
+  align-items: center;
+}
+
+.grid::-webkit-scrollbar {
+  height: 12px;
+}
+
+.grid::-webkit-scrollbar-track {
+  background-color: var(--secondary-txt-color);
+  border-radius: 10px;
+}
+
+.grid::-webkit-scrollbar-thumb {
+  background: var(--bg-color);
+  border: 2px solid var(--secondary-txt-color);
+  border-radius: 10px;
 }
 
 .card {
@@ -132,6 +189,8 @@ export default {
   height: 150px;
   width: 150px;
   border-radius: 8px;
+  border: 1px solid var(--primary-txt-color);
+  transition: 0.5s;
 }
 
 .card-category {

@@ -31,7 +31,7 @@ export default {
 <style>
 header {
   position: fixed;
-  top: 15px;
+  top: 2vh;
   z-index: 1;
   display: flex;
   width: 100%;
@@ -45,15 +45,15 @@ header h1 {
   justify-content: flex-start;
   align-items: flex-end;
   padding: 0px;
-  margin: 0px 0px 0px 50px;
+  margin: 0px 0px 0px 4vw;
   font-weight: bold;
   color: var(--primary-txt-color);
   transition: 0.5s;
 }
 
 header .nav {
-  margin: 0px 50px 0px 0px;
-  padding: 0;
+  margin: 0px 4vw 0px 0px;
+  padding: 0px;
   list-style: none;
   display: flex;
   width: 100%;
