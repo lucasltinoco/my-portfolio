@@ -1,21 +1,22 @@
 <template>
-  <header>
+  <header class="header">
     <h1>lucas l. tinoco</h1>
-    <div v-if="lang == 'eng'" class="nav">
-      <a href="#home">home</a>
-      <a href="#who-i-am">who i am</a>
-      <a href="#what-i-do">what i do</a>
-      <a href="#my-projects">my projects</a>
-      <a href="#contact-me">contact me</a>
-    </div>
-    <div v-else-if="lang === 'por'" class="nav">
-      <a href="#home">início</a>
-      <a href="#who-i-am">quem sou eu</a>
-      <a href="#what-i-do">o que faço</a>
-      <a href="#my-projects">meus projetos</a>
-      <a href="#contact-me">entre em contato</a>
-    </div>
-    
+    <transition name="fade" mode="out-in">
+      <div v-if="lang == 'eng'" class="nav" key="eng">
+        <a href="#home">home</a>
+        <a href="#who-i-am">who i am</a>
+        <a href="#what-i-do">what i do</a>
+        <a href="#my-projects">my projects</a>
+        <a href="#contact-me">contact me</a>
+      </div>
+      <div v-else-if="lang === 'por'" class="nav" key="por">
+        <a href="#home">início</a>
+        <a href="#who-i-am">quem sou eu</a>
+        <a href="#what-i-do">o que faço</a>
+        <a href="#my-projects">meus projetos</a>
+        <a href="#contact-me">entre em contato</a>
+      </div>
+    </transition>
   </header>
 </template>
 
@@ -36,7 +37,7 @@ header {
   display: flex;
   width: 100%;
   min-height: 59px;
-  font-size: 1rem;
+  font-size: var(--txt-size);
 }
 
 header h1 {
@@ -65,7 +66,7 @@ header .nav a {
   position: relative;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: var(--txt-size);
   color: var(--secondary-txt-color);
   transition: 0.5s;
 }
@@ -81,7 +82,7 @@ header .nav a::after {
 }
 
 header .nav a:hover::after,
-header .nav a.currentPage::after {
+header .nav a.current-page::after {
   width: 100%;
   background-color: var(--primary-txt-color);
 }

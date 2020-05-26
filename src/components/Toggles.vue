@@ -3,7 +3,9 @@
     <a class="theme-toggler" @click="this.toggleTheme">
       <i class="im im-light-bulb"></i>
     </a>
-    <a class="lang-toggler" @click="this.toggleLang">{{buttonLang}}</a>
+    <transition name="fade" mode="out-in">
+      <a class="lang-toggler" @click="this.toggleLang" v-bind:key="buttonLang">{{buttonLang}}</a>
+    </transition>
   </div>
 </template>
 
@@ -13,15 +15,16 @@ import { mapState } from "vuex";
 export default {
   name: "Toggles",
   computed: mapState(["lang"]),
-  data: function () {
+  data: function() {
     return {
-      buttonLang: ''
-    }
+      buttonLang: ""
+    };
   },
   methods: {
     setTheme(themeName) {
       localStorage.setItem("theme", themeName);
       document.querySelector("html").className = themeName;
+      this.$store.commit("setTheme", themeName);
     },
     toggleTheme() {
       localStorage.getItem("theme") === "theme-dark"
@@ -31,14 +34,15 @@ export default {
     setLang(langName) {
       localStorage.setItem("lang", langName);
       this.$store.commit("setLang", langName);
-      langName === "eng"
-        ? this.buttonLang = "por"
-        : this.buttonLang = "eng"
+      this.buttonLang = langName
     },
     toggleLang() {
       localStorage.getItem("lang") === "eng"
         ? this.setLang("por")
         : this.setLang("eng");
+      setTimeout(() => {
+        this.$parent.highlightNavItem();
+      }, 500)
     }
   },
   mounted() {
@@ -54,11 +58,6 @@ export default {
 </script>
 
 <style>
-.toggles {
-  color: var(--secondary-txt-color);
-  transition: 0.5s;
-}
-
 .theme-toggler {
   position: fixed;
   left: 4vw;
@@ -69,6 +68,8 @@ export default {
 
 .theme-toggler .im-light-bulb {
   font-size: 30px;
+  color: var(--secondary-txt-color);
+  transition: 0.5s;
 }
 
 .lang-toggler {
@@ -80,5 +81,15 @@ export default {
   color: var(--secondary-txt-color);
   font-size: 30px;
   font-weight: bold;
+  transition: 0.5s;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

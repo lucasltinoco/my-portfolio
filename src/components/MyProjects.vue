@@ -12,13 +12,18 @@
       <button @click="setTag('react')">React</button>
       <button @click="setTag('jsonserver')">JSON Server</button>
       <button @click="setTag('angular')">Angular</button>
-      <button v-if="lang === 'eng'" @click="setTag('all')">All</button>
-      <button v-else-if="lang === 'por'" @click="setTag('all')">Todos</button>
+      <transition name="fade" mode="out-in">
+        <!-- ADJUST TRANSITION -->
+        <button v-if="lang === 'eng'" @click="setTag('all')" key="eng">All</button>
+        <button v-else-if="lang === 'por'" @click="setTag('all')" key="por">Todos</button>
+      </transition>
     </div>
     <div v-bind:class="{grid: this.tags.all, flex: !this.tags.all}">
       <div class="card proerd" v-show="tags.cpp || tags.allegro || tags.all">
-        <div v-if="lang === 'eng'" class="card-category">Run & Jump Game</div>
-        <div v-else-if="lang === 'por'" class="card-category">Proerd Game</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">Run & Jump Game</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">Proerd Game</div>
+        </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/proerd-game"></a>
       </div>
 
@@ -26,14 +31,18 @@
         class="card knowledge"
         v-show="tags.vue || tags.bootstrap || tags.mongodb || tags.postgresql || tags.all"
       >
-        <div v-if="lang === 'eng'" class="card-category">Knowledge Base</div>
-        <div v-else-if="lang === 'por'" class="card-category">Base de Conhecimento</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">Knowledge Base</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">Base de Conhecimento</div>
+        </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/knowledge"></a>
       </div>
 
       <div class="card gallery" v-show="tags.bootstrap || tags.jquery || tags.webpack || tags.all">
-        <div v-if="lang === 'eng'" class="card-category">Trip Gallery</div>
-        <div v-else-if="lang === 'por'" class="card-category">Galeria de Viagens</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">Trip Gallery</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">Galeria de Viagens</div>
+        </transition>
         <a
           class="card-link"
           href="https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria"
@@ -41,8 +50,10 @@
       </div>
 
       <div class="card react-calc" v-show="tags.react || tags.all">
-        <div v-if="lang === 'eng'" class="card-category">React Calculator</div>
-        <div v-else-if="lang === 'por'" class="card-category">Calculadora com React</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">React Calculator</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">Calculadora com React</div>
+        </transition>
         <a
           class="card-link"
           href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/calculadora"
@@ -50,20 +61,26 @@
       </div>
 
       <div class="card react-crud" v-show="tags.react || tags.jsonserver || tags.all">
-        <div v-if="lang === 'eng'" class="card-category">React CRUD</div>
-        <div v-else-if="lang === 'por'" class="card-category">CRUD com React</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">React CRUD</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">CRUD com React</div>
+        </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/crud"></a>
       </div>
 
       <div class="card qr-code" v-show="tags.vue || tags.all">
-        <div v-if="lang === 'eng'" class="card-category">QR Code Generator</div>
-        <div v-else-if="lang === 'por'" class="card-category">Gerador de QR Code</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">QR Code Generator</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">Gerador de QR Code</div>
+        </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/qrcode"></a>
       </div>
 
       <div class="card vue-calc" v-show="tags.vue || tags.all">
-        <div v-if="lang === 'eng'" class="card-category">Vue Calculator</div>
-        <div v-else-if="lang === 'por'" class="card-category">Calculadora com Vue</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">Vue Calculator</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">Calculadora com Vue</div>
+        </transition>
         <a
           class="card-link"
           href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/calculator"
@@ -71,8 +88,10 @@
       </div>
 
       <div class="card monty-hall" v-show="tags.vue || tags.all">
-        <div v-if="lang === 'eng'" class="card-category">Monty Hall Problem</div>
-        <div v-else-if="lang === 'por'" class="card-category">Problema de Monty Hall</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">Monty Hall Problem</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">Problema de Monty Hall</div>
+        </transition>
         <a
           class="card-link"
           href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/montyhall"
@@ -80,14 +99,18 @@
       </div>
 
       <div class="card angular-crud" v-show="tags.angular || tags.jsonserver || tags.all">
-        <div v-if="lang === 'eng'" class="card-category">Angular CRUD</div>
-        <div v-else-if="lang === 'por'" class="card-category">CRUD com Angular</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">Angular CRUD</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">CRUD com Angular</div>
+        </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/angular"></a>
       </div>
 
       <div class="card portfolio" v-show="tags.vue || tags.bootstrap || tags.all">
-        <div v-if="lang === 'eng'" class="card-category">Portfolio</div>
-        <div v-else-if="lang === 'por'" class="card-category">Portfólio</div>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">Portfolio</div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">Portfólio</div>
+        </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/my-portfolio"></a>
       </div>
     </div>
@@ -143,12 +166,12 @@ export default {
 
 .tags button {
   background-color: var(--bg-color);
-  border: none;
   color: var(--secondary-txt-color);
+  outline-color: var(--secondary-txt-color);
+  transition: 0.5s;
+  border: none;
   text-align: center;
   text-decoration: none;
-  transition: 0.5s;
-  outline-color: var(--secondary-txt-color);
   margin: 1px;
   cursor: pointer;
 }
@@ -200,7 +223,7 @@ export default {
   top: 10px;
   left: 10px;
   right: 10px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);

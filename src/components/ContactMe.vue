@@ -60,7 +60,7 @@ export default {
 
 <style>
 .form {
-  width: 50vw;
+  width: 75vw;
 }
 
 #text,
@@ -70,7 +70,7 @@ export default {
   box-sizing: border-box;
   border: 1px solid var(--secondary-txt-color);
   border-radius: 4px;
-  font-size: 16px;
+  font-size: var(--txt-size);
   background-color: var(--bg-color);
   color: var(--primary-txt-color);
   outline: none;
@@ -113,13 +113,13 @@ export default {
   transition: 0.5s;
   outline: none;
   margin: 1px;
-  font-size: 16px;
+  font-size: var(--txt-size);
   cursor: pointer;
 }
 
 .footer {
   position: absolute;
   bottom: 0;
-  font-size: 0.75em;
+  font-size: calc(var(--txt-size)*3/4);
 }
 </style>

@@ -92,13 +92,13 @@ export default {
       const pageIndex = this.pages.indexOf(page);
 
       for (let i = 0; i < this.pages.length; i++) {
-        pageIndex == i
+        pageIndex === i
           ? document
-              .querySelector(`.nav a:nth-child(${i + 1})`)
-              .classList.add("currentPage")
+              .querySelector(`header div a:nth-child(${i + 1})`)
+              .classList.add("current-page")
           : document
-              .querySelector(`.nav a:nth-child(${i + 1})`)
-              .classList.remove("currentPage");
+              .querySelector(`header div a:nth-child(${i + 1})`)
+              .classList.remove("current-page");
       }
     }
   },
@@ -113,8 +113,12 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
 @import url("https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css");
+
+:root {
+  --txt-size: 16px;
+}
 
 .theme-light {
   --bg-color: #ece9e6;
@@ -129,7 +133,7 @@ export default {
 }
 
 * {
-  font-family: "Jost", sans-serif;
+  font-family: "Libre Baskerville", serif;
 }
 
 *,
@@ -154,7 +158,6 @@ body {
   flex-direction: column;
   line-height: 1.5;
   color: var(--secondary-txt-color);
-  font-size: 59.8%;
   background: var(--bg-color);
   transition: 0.5s;
 }
@@ -167,7 +170,7 @@ section {
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: var(--txt-size);
   background-size: cover;
   scroll-snap-align: center;
 }

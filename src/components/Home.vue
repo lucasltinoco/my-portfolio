@@ -1,16 +1,18 @@
 <template>
   <section id="home">
     <img src="../assets/imgs/avatar.png" alt="Avatar" />
-    <p v-if="lang === 'eng'">
-      Hi! I'm a
-      <strong class="adjective">{{adjectivesEng[counter]}}</strong>.
-      <br />I create when it doesn't exist and fix when it doesn't work.
-    </p>
-    <p v-else-if="lang === 'por'">
-      Olá! Eu sou um
-      <strong class="adjective">{{adjectivesPor[counter]}}</strong>.
-      <br />Eu crio quando não existe e conserto quando não funciona.
-    </p>
+    <transition name="fade" mode="out-in">
+      <p v-if="lang === 'eng'" key="eng">
+        Hi! I'm a
+        <strong class="adjective">{{adjectivesEng[counter]}}</strong>.
+        <br />I create when it doesn't exist and fix when it doesn't work.
+      </p>
+      <p v-else-if="lang === 'por'" key="por">
+        Olá! Eu sou um
+        <strong class="adjective">{{adjectivesPor[counter]}}</strong>.
+        <br />Eu crio quando não existe e conserto quando não funciona.
+      </p>
+    </transition>
     <div class="social">
       <a href="https://www.linkedin.com/in/lucas-tinoco-783420194/">
         <i class="im im-linkedin"></i>
@@ -26,7 +28,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
   name: "Home",
@@ -61,7 +63,8 @@ export default {
 #home p {
   padding-top: 4vh;
   font-style: italic;
-  font-size: 1.75rem;
+  font-size: calc(var(--txt-size) * 3 / 2);
+  width: 75vw;
 }
 
 .adjective {
@@ -76,7 +79,7 @@ export default {
 .social i {
   color: var(--secondary-txt-color);
   transition: 0.5s;
-  font-size: 18px;
+  font-size: var(--txt-size);
   text-decoration: none;
   padding: 0 5px;
   justify-content: center;
