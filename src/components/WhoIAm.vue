@@ -6,7 +6,6 @@
           v-if="theme === 'theme-dark'"
           src="../assets/imgs/circuit-guy-dark.svg"
           alt="circuits guy"
-          height="250px"
           width="250px"
           key="dark"
         />

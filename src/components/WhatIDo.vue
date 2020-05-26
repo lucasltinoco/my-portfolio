@@ -6,7 +6,6 @@
           v-if="theme === 'theme-dark'"
           src="../assets/imgs/code-guy-dark.svg"
           alt="code guy"
-          height="250px"
           width="250px"
           key="dark"
         />
@@ -14,7 +13,6 @@
           v-else-if="theme === 'theme-light'"
           src="../assets/imgs/code-guy-light.svg"
           alt="code guy"
-          height="250px"
           width="250px"
           key="light"
         />

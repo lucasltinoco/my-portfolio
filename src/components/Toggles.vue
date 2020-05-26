@@ -34,7 +34,9 @@ export default {
     setLang(langName) {
       localStorage.setItem("lang", langName);
       this.$store.commit("setLang", langName);
-      this.buttonLang = langName
+      langName === "eng"
+        ? this.buttonLang = "por"
+        : this.buttonLang = "eng"
     },
     toggleLang() {
       localStorage.getItem("lang") === "eng"
