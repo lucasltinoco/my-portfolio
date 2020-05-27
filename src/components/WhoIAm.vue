@@ -13,7 +13,6 @@
           v-else-if="theme === 'theme-light'"
           src="../assets/imgs/circuit-guy-light.svg"
           alt="circuits guy"
-          height="250px"
           width="250px"
           key="light"
         />
