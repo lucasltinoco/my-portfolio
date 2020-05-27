@@ -1,6 +1,7 @@
 <template>
   <section id="contact-me">
-    <form v-if="lang === 'eng'" class="form">
+    <transition name="fade" mode="out-in">
+    <form v-if="lang === 'eng'" class="form" key="eng">
       <label for="subject">Subject:</label>
       <br />
       <input type="text" id="subject" name="subject" placeholder="Enter subject..." v-model="form.subject"/>
@@ -13,7 +14,7 @@
       <input type="submit" value="Submit" id="submit" @click="onSubmit"/>
       <input type="reset" value="Reset" id="reset" @click="onReset"/>
     </form>
-    <form v-else-if="lang === 'por'" class="form">
+    <form v-else-if="lang === 'por'" class="form" key="por">
       <label for="subject">Assunto:</label>
       <br />
       <input type="text" id="subject" name="subject" placeholder="Insira o assunto..." v-model="form.subject"/>
@@ -26,6 +27,7 @@
       <input type="submit" value="Submeter" id="submit" @click="onSubmit"/>
       <input type="reset" value="Resetar" id="reset" @click="onReset"/>
     </form>
+    </transition>
     <footer class="footer">© Lucas Tinoco 2020</footer>
   </section>
 </template>
