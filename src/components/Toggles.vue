@@ -43,7 +43,7 @@ export default {
         ? this.setLang("por")
         : this.setLang("eng");
       setTimeout(() => {
-        this.$parent.highlightNavItem();
+        this.$parent.highlightPageTitle();
       }, 500)
     }
   },

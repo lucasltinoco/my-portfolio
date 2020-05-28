@@ -19,7 +19,8 @@
           key="light"
         />
       </transition>
-      <h1>lucas l. tinoco</h1>
+      <h1 class="name-title">lucas l. tinoco</h1>
+      <h1 class="page-title">/ {{currentPage}}</h1>
     </div>
     <transition name="fade" mode="out-in">
       <div v-if="lang == 'eng'" class="nav" key="eng">
@@ -62,7 +63,7 @@ import { mapState } from "vuex";
 
 export default {
   name: "Header",
-  computed: mapState(["lang", "theme"]),
+  computed: mapState(["lang", "theme", "currentPage"]),
   methods: {
     changeNavClass(navElement) {
       navElement.style.display === "none"
@@ -101,12 +102,22 @@ header .title {
   margin: 0px 0px 0px 4vw;
 }
 
-header .title h1 {
+header h1 {
   color: var(--primary-txt-color);
   font-weight: bold;
   transition: 0.5s;
-  padding-left: 10px;
   margin: 0;
+}
+
+header .name-title {
+  padding-left: 10px;
+}
+
+header .page-title {
+  padding-left: 5px;
+  display: none;
+
+    transition: 0.5s;
 }
 
 header .nav {
@@ -168,7 +179,7 @@ header .dropdown-nav a {
 }
 
 @media only screen and (max-width: 1024px) {
-  header .title h1 {
+  header .title .name-title {
     display: none;
   }
 }
@@ -187,6 +198,10 @@ header .dropdown-nav a {
     margin-right: 4vw;
     padding: 0px 0px 9px 0px;
     cursor: pointer;
+  }
+
+  header .page-title {
+    display: flex;
   }
 }
 </style>

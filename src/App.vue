@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import WhoIAm from "./components/WhoIAm";
@@ -21,6 +22,7 @@ import Toggles from "./components/Toggles";
 
 export default {
   name: "App",
+  computed: mapState(["currentPage"]),
   components: {
     Home,
     WhoIAm,
@@ -50,7 +52,7 @@ export default {
       } else {
         location.href = `${this.baseUrl}#${this.pages[0]}`;
       }
-      this.highlightNavItem();
+      this.highlightPageTitle();
     },
     monitorScroll(scrollableElement) {
       scrollableElement.addEventListener("wheel", this.findDelta);
@@ -86,26 +88,30 @@ export default {
       }
       this.lastAnimation = timeNow;
     },
-    highlightNavItem() {
+    highlightPageTitle() {
       const url = location.href;
       const page = url.split("#")[1];
       const pageIndex = this.pages.indexOf(page);
 
       for (let i = 0; i < this.pages.length; i++) {
-        pageIndex === i
-          ? document
+        if(pageIndex === i) {
+          document
               .querySelector(`.nav a:nth-child(${i + 1})`)
               .classList.add("current-page")
-          : document
+          this.$store.commit("setCurrentPage", this.pages[pageIndex])
+          console.log(this.currentPage)
+        } else {
+          document
               .querySelector(`.nav a:nth-child(${i + 1})`)
               .classList.remove("current-page");
+        } 
       }
     }
   },
   mounted() {
     this.redirectUrl();
     window.addEventListener("hashchange", () => {
-      this.highlightNavItem();
+      this.highlightPageTitle();
     });
     this.monitorScroll(document.getElementById("app"));
   }
