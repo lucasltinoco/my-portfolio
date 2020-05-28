@@ -39,14 +39,14 @@
     </transition>
     <div class="dropdown-menu">
       <i class="im im-menu-list"></i>
-      <div v-if="lang == 'eng'" class="dropdown-nav" key="eng">
+      <div v-if="lang == 'eng'" class="dropdown-nav" style="display: none;">
         <a href="#home">home</a>
         <a href="#who-i-am">who i am</a>
         <a href="#what-i-do">what i do</a>
         <a href="#my-projects">my projects</a>
         <a href="#contact-me" style="margin-right=0px;">contact me</a>
       </div>
-      <div v-else-if="lang === 'por'" class="dropdown-nav" key="por">
+      <div v-else-if="lang === 'por'" class="dropdown-nav" style="display: none;">
         <a href="#home">início</a>
         <a href="#who-i-am">quem sou</a>
         <a href="#what-i-do">o que faço</a>
@@ -64,20 +64,19 @@ export default {
   name: "Header",
   computed: mapState(["lang", "theme"]),
   methods: {
-    changeNavClass() {
-      const navElement = document.querySelector(".dropdown-nav");
+    changeNavClass(navElement) {
       navElement.style.display === "none"
         ? (navElement.style.display = "inline-block")
         : (navElement.style.display = "none");
     }
   },
   mounted() {
-    document.querySelector(".dropdown-nav").style.display = "none";
     window.onclick = () => {
-      if(event.target.matches(".im-menu-list") || 
-        !event.target.matches(".dropdown-nav") ||
-        event.matches(".dropdown-nav a")) {
-          this.changeNavClass()
+      const navElement = document.querySelector(".dropdown-nav");
+      if (navElement.style.display === "inline-block") {
+        this.changeNavClass(navElement);
+      } else if (event.target.matches(".im-menu-list")) {
+        this.changeNavClass(navElement);
       }
     };
   }
@@ -148,7 +147,6 @@ header .dropdown-menu {
 }
 
 header .dropdown-nav {
-  display: none;
   position: absolute;
   top: 60px;
   right: 4vw;
