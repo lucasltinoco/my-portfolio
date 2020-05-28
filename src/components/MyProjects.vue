@@ -238,7 +238,6 @@ export default {
   left: 0;
   height: 150px;
   width: 150px;
-  z-index: 2;
   background: black;
   border-radius: 8px;
 }
