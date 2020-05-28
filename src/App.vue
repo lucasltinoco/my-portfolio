@@ -94,10 +94,10 @@ export default {
       for (let i = 0; i < this.pages.length; i++) {
         pageIndex === i
           ? document
-              .querySelector(`header div a:nth-child(${i + 1})`)
+              .querySelector(`.nav a:nth-child(${i + 1})`)
               .classList.add("current-page")
           : document
-              .querySelector(`header div a:nth-child(${i + 1})`)
+              .querySelector(`.nav a:nth-child(${i + 1})`)
               .classList.remove("current-page");
       }
     }

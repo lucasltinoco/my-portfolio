@@ -1,6 +1,26 @@
 <template>
   <header class="header">
-    <h1>lucas l. tinoco</h1>
+    <div class="title svg-fade">
+      <transition name="fade" mode="out-in">
+        <img
+          v-if="theme === 'theme-dark'"
+          src="../assets/imgs/logo-dark.svg"
+          alt="logo"
+          height="50px"
+          width="75px"
+          key="dark"
+        />
+        <img
+          v-else-if="theme === 'theme-light'"
+          src="../assets/imgs/logo-light.svg"
+          alt="logo"
+          height="50px"
+          width="75px"
+          key="light"
+        />
+      </transition>
+      <h1>lucas l. tinoco</h1>
+    </div>
     <transition name="fade" mode="out-in">
       <div v-if="lang == 'eng'" class="nav" key="eng">
         <a href="#home">home</a>
@@ -25,7 +45,7 @@ import { mapState } from "vuex";
 
 export default {
   name: "Header",
-  computed: mapState(["lang"])
+  computed: mapState(["lang", "theme"])
 };
 </script>
 
@@ -35,35 +55,36 @@ header {
   top: 2vh;
   z-index: 1;
   display: flex;
-  width: 100%;
-  min-height: 59px;
-  font-size: var(--txt-size);
+  justify-content: space-between;
+  width: 100vw;
+  height: 64px;
 }
 
-header h1 {
+header .title {
   display: flex;
-  width: 100%;
-  justify-content: flex-start;
   align-items: flex-end;
   padding: 0px;
   margin: 0px 0px 0px 4vw;
-  font-weight: bold;
+}
+
+header .title h1 {
   color: var(--primary-txt-color);
+  font-weight: bold;
   transition: 0.5s;
+  padding-left: 25px;
+  margin: 0;
 }
 
 header .nav {
   margin: 0px 4vw 0px 0px;
-  padding: 0px;
-  list-style: none;
+  padding: 0px 0px 9px 0px;
   display: flex;
-  width: 100%;
-  justify-content: space-between;
   align-items: flex-end;
 }
 
 header .nav a {
   position: relative;
+  margin: 0px 10px;
   text-decoration: none;
   font-weight: 700;
   font-size: var(--txt-size);
