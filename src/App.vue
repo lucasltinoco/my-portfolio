@@ -99,7 +99,6 @@ export default {
               .querySelector(`.nav a:nth-child(${i + 1})`)
               .classList.add("current-page")
           this.$store.commit("setCurrentPage", this.pages[pageIndex])
-          console.log(this.currentPage)
         } else {
           document
               .querySelector(`.nav a:nth-child(${i + 1})`)

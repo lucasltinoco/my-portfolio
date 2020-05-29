@@ -105,7 +105,6 @@ header .title {
 header h1 {
   color: var(--primary-txt-color);
   font-weight: bold;
-  transition: 0.5s;
   margin: 0;
 }
 
@@ -116,8 +115,16 @@ header .name-title {
 header .page-title {
   padding-left: 5px;
   display: none;
-
-    transition: 0.5s;
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.125s linear;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.125s, opacity 0.125s linear;
 }
 
 header .nav {
@@ -177,6 +184,7 @@ header .dropdown-nav a {
   display: block;
   text-align: right;
 }
+
 
 @media only screen and (max-width: 1024px) {
   header .title .name-title {
