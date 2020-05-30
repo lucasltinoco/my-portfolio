@@ -30,32 +30,16 @@ export default {
       localStorage.getItem("theme") === "theme-dark"
         ? this.setTheme("theme-light")
         : this.setTheme("theme-dark");
-      document
-              .querySelector(".page-title")
-              .classList.remove("visible")
-      document
-              .querySelector(".page-title")
-              .classList.add("hidden")
-      document
-              .querySelector(".name-title")
-              .classList.remove("visible")
-      document
-              .querySelector(".name-title")
-              .classList.add("hidden")
+      document.querySelector(".page-title").classList.remove("visible");
+      document.querySelector(".page-title").classList.add("hidden");
+      document.querySelector(".name-title").classList.remove("visible");
+      document.querySelector(".name-title").classList.add("hidden");
       setTimeout(() => {
-        document
-              .querySelector(".page-title")
-              .classList.remove("hidden")
-        document
-              .querySelector(".page-title")
-              .classList.add("visible")
-        document
-              .querySelector(".name-title")
-              .classList.remove("hidden")
-        document
-              .querySelector(".name-title")
-              .classList.add("visible")
-      }, 250)
+        document.querySelector(".page-title").classList.remove("hidden");
+        document.querySelector(".page-title").classList.add("visible");
+        document.querySelector(".name-title").classList.remove("hidden");
+        document.querySelector(".name-title").classList.add("visible");
+      }, 250);
     },
     setLang(langName) {
       localStorage.setItem("lang", langName);
@@ -68,21 +52,13 @@ export default {
       localStorage.getItem("lang") === "eng"
         ? this.setLang("por")
         : this.setLang("eng");
-      document
-              .querySelector(".page-title")
-              .classList.remove("visible")
-      document
-              .querySelector(".page-title")
-              .classList.add("hidden")
+      document.querySelector(".page-title").classList.remove("visible");
+      document.querySelector(".page-title").classList.add("hidden");
       setTimeout(() => {
         this.$parent.highlightPageTitle();
-        document
-              .querySelector(".page-title")
-              .classList.remove("hidden")
-        document
-              .querySelector(".page-title")
-              .classList.add("visible")
-      }, 250)
+        document.querySelector(".page-title").classList.remove("hidden");
+        document.querySelector(".page-title").classList.add("visible");
+      }, 250);
     }
   },
   mounted() {

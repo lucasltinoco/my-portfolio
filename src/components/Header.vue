@@ -103,6 +103,7 @@ header .title {
 }
 
 header h1 {
+  font-size: calc(var(--txt-size) * 2);
   color: var(--primary-txt-color);
   font-weight: bold;
   margin: 0;
@@ -115,16 +116,6 @@ header .name-title {
 header .page-title {
   padding-left: 5px;
   display: none;
-}
-.visible {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.125s linear;
-}
-.hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 0.125s, opacity 0.125s linear;
 }
 
 header .nav {
@@ -139,7 +130,7 @@ header .nav a {
   margin: 0px 0px 0px 15px;
   text-decoration: none;
   font-weight: 700;
-  font-size: var(--txt-size);
+  font-size: 1rem;
   color: var(--secondary-txt-color);
   transition: 0.5s;
 }

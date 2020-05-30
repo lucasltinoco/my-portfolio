@@ -18,7 +18,8 @@
         <button v-else-if="lang === 'por'" @click="setTag('all')" key="por">Todos</button>
       </transition>
     </div>
-    <div v-bind:class="{grid: this.tags.all, flex: !this.tags.all}">
+
+    <div class="grid">
       <div class="card proerd" v-show="tags.cpp || tags.allegro || tags.all">
         <transition name="fade" mode="out-in">
           <div v-if="lang === 'eng'" class="card-category" key="eng">Run & Jump Game</div>
@@ -106,7 +107,7 @@
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/angular"></a>
       </div>
 
-      <div class="card portfolio" v-show="tags.vue || tags.bootstrap || tags.all">
+      <div class="card portfolio" v-show="tags.vue || tags.all">
         <transition name="fade" mode="out-in">
           <div v-if="lang === 'eng'" class="card-category" key="eng">Portfolio</div>
           <div v-else-if="lang === 'por'" class="card-category" key="por">Portfólio</div>
@@ -143,10 +144,36 @@ export default {
   },
   methods: {
     setTag(tag) {
+      this.transitionGrid(document.querySelector('.grid'))
       for (let [key, value] of Object.entries(this.tags)) {
         key == tag ? (value = true) : (value = false);
         this.tags[key] = value;
       }
+      setTimeout(() => {
+        this.configureGrid(document.querySelector('.grid'))
+      }, 1)
+    },
+    getChildren(gridElement) {
+      let activeChildren = 0
+      for (let i = 1; i <= gridElement.children.length; i++) {
+        if(!(document.querySelector(`.grid div:nth-child(${i})`).style.display === 'none')) {
+          activeChildren++
+        }
+      }
+      return activeChildren
+    },
+    configureGrid(gridElement) {
+      const cards = this.getChildren(gridElement)
+      const columns = Math.ceil(cards / 2)
+      gridElement.style = `grid-template-columns: repeat(${columns}, 1fr);`
+    },
+    transitionGrid(gridElement) {
+      gridElement.classList.remove("visible-grid");
+      gridElement.classList.add("hidden-grid");
+      setTimeout(() => {
+        gridElement.classList.remove("hidden-grid");
+        gridElement.classList.add("visible-grid");
+      }, 250);
     }
   }
 };
@@ -174,23 +201,28 @@ export default {
   text-decoration: none;
   margin: 1px;
   cursor: pointer;
-}
-
-.flex {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
+  font-size: var(--txt-size);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  overflow-y: hidden;
-  width: 80vw;
+  overflow-y: auto;
   justify-items: center;
   align-items: center;
+  gap: 10px 20px;
+  width: 80vw;
+}
+
+.visible-grid {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+.hidden-grid {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .grid::-webkit-scrollbar {
@@ -210,7 +242,7 @@ export default {
 
 .card {
   position: relative;
-  margin: 10px;
+  margin-bottom: 10px;
   height: 150px;
   width: 150px;
   border-radius: 8px;

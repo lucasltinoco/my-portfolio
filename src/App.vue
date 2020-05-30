@@ -121,9 +121,12 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
 @import url("https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css");
 
-:root {
-  --txt-size: 16px;
-}
+@media (min-width: 240px) { :root { --txt-size: 0.5rem; } } 
+@media (min-width: 320px) { :root { --txt-size: 0.6rem; } } 
+@media (min-width: 480px) { :root { --txt-size: 0.7rem; } } 
+@media (min-width: 640px) { :root { --txt-size: 0.8rem; } } 
+@media (min-width: 768px) { :root { --txt-size: 0.9rem; } } 
+@media (min-width: 1024px) { :root { --txt-size: 1rem; } }
 
 .theme-light {
   --bg-color: #ece9e6;
@@ -135,6 +138,17 @@ export default {
   --bg-color: #232526;
   --primary-txt-color: rgb(243, 236, 236);
   --secondary-txt-color: rgb(230, 215, 215);
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.125s linear;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.125s, opacity 0.125s linear;
 }
 
 * {
