@@ -6,14 +6,12 @@
           v-if="theme === 'theme-dark'"
           src="../assets/imgs/circuit-guy-dark.svg"
           alt="circuits guy"
-          width="250px"
           key="dark"
         />
         <img
           v-else-if="theme === 'theme-light'"
           src="../assets/imgs/circuit-guy-light.svg"
           alt="circuits guy"
-          width="250px"
           key="light"
         />
       </transition>
@@ -66,6 +64,10 @@ export default {
   align-items: center;
 }
 
+#who-i-am img {
+  width: calc(var(--txt-size) * 16);
+}
+
 .svg-fade .fade-enter-active,
 .svg-fade .fade-leave-active {
   transition: opacity 0.125s;
@@ -78,7 +80,7 @@ export default {
 #who-i-am p {
   margin: 0px;
   font-size: var(--txt-size);
-  width: 75vw;
+  width: 80vw;
 }
 
 #who-i-am a,

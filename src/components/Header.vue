@@ -6,16 +6,12 @@
           v-if="theme === 'theme-dark'"
           src="../assets/imgs/logo-dark.svg"
           alt="logo"
-          height="50px"
-          width="75px"
           key="dark"
         />
         <img
           v-else-if="theme === 'theme-light'"
           src="../assets/imgs/logo-light.svg"
           alt="logo"
-          height="50px"
-          width="75px"
           key="light"
         />
       </transition>
@@ -97,7 +93,7 @@ header {
 
 header .title {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   padding: 0px;
   margin: 0px 0px 0px 4vw;
 }
@@ -114,15 +110,14 @@ header .name-title {
 }
 
 header .page-title {
-  padding-left: 5px;
   display: none;
 }
 
 header .nav {
   margin: 0px 4vw 0px 0px;
-  padding: 0px 0px 9px 0px;
+  padding: 0px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 
 header .nav a {
@@ -164,7 +159,7 @@ header .dropdown-nav {
   min-width: 110px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 2;
-  font-size: var(--txt-size);
+  font-size: calc(var(--txt-size) * 1.5);
 }
 
 header .dropdown-nav a {
@@ -174,6 +169,11 @@ header .dropdown-nav a {
   text-decoration: none;
   display: block;
   text-align: right;
+}
+
+header .title img {
+  height: calc(var(--txt-size) * 10 / 3);
+  width: calc(var(--txt-size) * 20 / 3);
 }
 
 
@@ -189,13 +189,12 @@ header .dropdown-nav a {
   }
   header .dropdown-menu {
     display: flex;
-    align-items: flex-end;
-    font-size: 30px;
+    align-items: center;
   }
   header .dropdown-menu i {
-    font-size: 30px;
+    font-size: calc(var(--txt-size) * 2);
     margin-right: 4vw;
-    padding: 0px 0px 9px 0px;
+    padding: 0px;
     cursor: pointer;
   }
 

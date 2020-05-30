@@ -83,7 +83,7 @@ export default {
 }
 
 .theme-toggler .im-light-bulb {
-  font-size: 30px;
+  font-size: calc(var(--txt-size) * 2);
   color: var(--secondary-txt-color);
   transition: 0.5s;
 }
@@ -95,7 +95,7 @@ export default {
   cursor: pointer;
   text-decoration: none;
   color: var(--secondary-txt-color);
-  font-size: 30px;
+  font-size: calc(var(--txt-size) * 2);
   font-weight: bold;
   transition: 0.5s;
 }

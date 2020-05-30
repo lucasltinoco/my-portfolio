@@ -55,16 +55,16 @@ export default {
 
 <style>
 #home img {
-  height: 120px;
-  width: 120px;
+  height: calc(var(--txt-size) * 8);
+  width: calc(var(--txt-size) * 8);
   border-radius: 50vh;
 }
 
 #home p {
-  padding-top: 4vh;
+  padding-top: 2vh;
   font-style: italic;
   font-size: calc(var(--txt-size) * 3 / 2);
-  width: 75vw;
+  width: 80vw;
 }
 
 .adjective {

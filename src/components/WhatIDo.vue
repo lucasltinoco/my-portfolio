@@ -6,14 +6,12 @@
           v-if="theme === 'theme-dark'"
           src="../assets/imgs/code-guy-dark.svg"
           alt="code guy"
-          width="250px"
           key="dark"
         />
         <img
           v-else-if="theme === 'theme-light'"
           src="../assets/imgs/code-guy-light.svg"
           alt="code guy"
-          width="250px"
           key="light"
         />
       </transition>
@@ -59,14 +57,25 @@ export default {
 </script>
 
 <style>
+#what-i-do {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+}
+
 #what-i-do p {
   font-size: var(--txt-size);
-  width: 75vw;
+  width: 80vw;
 }
 
 #what-i-do a,
 #what-i-do a:hover {
   color: var(--secondary-txt-color);
   transition: 0.5s;
+}
+
+#what-i-do img {
+  width: calc(var(--txt-size) * 16);
 }
 </style>

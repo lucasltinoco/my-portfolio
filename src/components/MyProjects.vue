@@ -182,13 +182,13 @@ export default {
 <style>
 .tags {
   position: absolute;
-  bottom: 4vh;
+  bottom: 2vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 65vw;
+  width: 75vw;
 }
 
 .tags button {
@@ -206,6 +206,7 @@ export default {
 
 .grid {
   display: grid;
+  margin-top: 2vh;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
   overflow-y: auto;

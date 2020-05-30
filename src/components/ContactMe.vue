@@ -62,7 +62,8 @@ export default {
 
 <style>
 .form {
-  width: 75vw;
+  width: 80vw;
+  margin-top: 2vh;
 }
 
 #text,
