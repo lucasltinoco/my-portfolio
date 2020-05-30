@@ -140,17 +140,6 @@ export default {
   --secondary-txt-color: rgb(230, 215, 215);
 }
 
-.visible {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.125s linear;
-}
-.hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 0.125s, opacity 0.125s linear;
-}
-
 * {
   font-family: "Libre Baskerville", serif;
 }

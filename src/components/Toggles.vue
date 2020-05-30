@@ -30,16 +30,8 @@ export default {
       localStorage.getItem("theme") === "theme-dark"
         ? this.setTheme("theme-light")
         : this.setTheme("theme-dark");
-      document.querySelector(".page-title").classList.remove("visible");
-      document.querySelector(".page-title").classList.add("hidden");
-      document.querySelector(".name-title").classList.remove("visible");
-      document.querySelector(".name-title").classList.add("hidden");
-      setTimeout(() => {
-        document.querySelector(".page-title").classList.remove("hidden");
-        document.querySelector(".page-title").classList.add("visible");
-        document.querySelector(".name-title").classList.remove("hidden");
-        document.querySelector(".name-title").classList.add("visible");
-      }, 250);
+      this.transitionElement(document.querySelector(".name-title"))
+      this.transitionElement(document.querySelector(".page-title"))
     },
     setLang(langName) {
       localStorage.setItem("lang", langName);
@@ -58,6 +50,14 @@ export default {
         this.$parent.highlightPageTitle();
         document.querySelector(".page-title").classList.remove("hidden");
         document.querySelector(".page-title").classList.add("visible");
+      }, 250);
+    },
+    transitionElement(element) {
+      element.classList.remove("visible");
+      element.classList.add("hidden");
+      setTimeout(() => {
+        element.classList.remove("hidden");
+        element.classList.add("visible");
       }, 250);
     }
   },
@@ -107,5 +107,16 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.125s linear;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.125s, opacity 0.125s linear;
 }
 </style>
