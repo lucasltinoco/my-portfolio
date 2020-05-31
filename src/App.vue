@@ -34,10 +34,12 @@ export default {
   },
   data: function() {
     return {
-      baseUrl: "http://localhost:8080/",
+      baseUrl: "http://192.168.0.24:8080/",
       pages: ["home", "who-i-am", "what-i-do", "my-projects", "contact-me"],
       lastAnimation: 0,
-      quietPeriod: 500
+      quietPeriod: 500,
+      startX: 0,
+      startY: 0
     };
   },
   methods: {
@@ -63,6 +65,28 @@ export default {
         : (delta = -1 * event.deltaY);
       const direction = delta > 0 ? "up" : "down";
       this.movePage(direction);
+    },
+    touchStart(event) {
+      let touches = event.touches;
+      if (touches && touches.length) {
+        this.startX = touches[0].pageX;
+        this.startY = touches[0].pageY;
+        document.addEventListener("touchmove", this.touchMove);
+      }
+    },
+    touchMove(event) {
+      let touches = event.touches;
+      if (touches && touches.length) {
+        event.preventDefault();
+        let deltaX = this.startX - touches[0].pageX;
+        let deltaY = this.startY - touches[0].pageY;
+
+        if (deltaY >= 50) this.movePage("down")
+        
+        if (deltaY <= -50) this.movePage("up")
+
+        if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) document.removeEventListener("touchmove", this.touchMove);
+      }
     },
     movePage(direction) {
       const url = location.href;
@@ -105,7 +129,12 @@ export default {
   mounted() {
     this.redirectUrl();
     window.addEventListener("hashchange", () => this.highlightPageTitle());
-    document.getElementById("app").addEventListener("wheel", this.findScrollDirection);
+    document
+      .getElementById("app")
+      .addEventListener("wheel", this.findScrollDirection);
+    document
+      .getElementById("app")
+      .addEventListener("touchstart", this.touchStart);
   }
 };
 </script>
