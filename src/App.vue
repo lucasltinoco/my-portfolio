@@ -54,28 +54,23 @@ export default {
       }
       this.highlightPageTitle();
     },
-    monitorScroll(scrollableElement) {
-      scrollableElement.addEventListener("wheel", this.findDelta);
-    },
-    findDelta(event) {
+    findScrollDirection(event) {
+      if (event.shiftKey) return;
       let delta;
       event.preventDefault();
       event.wheelDelta
         ? (delta = event.wheelDelta)
         : (delta = -1 * event.deltaY);
-      this.movePage(event, delta);
+      const direction = delta > 0 ? "up" : "down";
+      this.movePage(direction);
     },
-    movePage(event, delta) {
+    movePage(direction) {
       const url = location.href;
       const page = url.split("#")[1];
       const pageIndex = this.pages.indexOf(page);
-      const direction = delta > 0 ? "up" : "down";
       let timeNow = new Date().getTime();
 
-      if (timeNow - this.lastAnimation < this.quietPeriod) {
-        event.preventDefault();
-        return;
-      }
+      if (timeNow - this.lastAnimation < this.quietPeriod) return;
 
       if (direction === "up") {
         pageIndex === 0
@@ -94,25 +89,23 @@ export default {
       const pageIndex = this.pages.indexOf(page);
 
       for (let i = 0; i < this.pages.length; i++) {
-        if(pageIndex === i) {
+        if (pageIndex === i) {
           document
-              .querySelector(`.nav a:nth-child(${i + 1})`)
-              .classList.add("current-page")
-          this.$store.commit("setCurrentPage", this.pages[pageIndex])
+            .querySelector(`.nav a:nth-child(${i + 1})`)
+            .classList.add("current-page");
+          this.$store.commit("setCurrentPage", this.pages[pageIndex]);
         } else {
           document
-              .querySelector(`.nav a:nth-child(${i + 1})`)
-              .classList.remove("current-page");
-        } 
+            .querySelector(`.nav a:nth-child(${i + 1})`)
+            .classList.remove("current-page");
+        }
       }
     }
   },
   mounted() {
     this.redirectUrl();
-    window.addEventListener("hashchange", () => {
-      this.highlightPageTitle();
-    });
-    this.monitorScroll(document.getElementById("app"));
+    window.addEventListener("hashchange", () => this.highlightPageTitle());
+    document.getElementById("app").addEventListener("wheel", this.findScrollDirection);
   }
 };
 </script>
@@ -121,12 +114,36 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
 @import url("https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css");
 
-@media (min-width: 240px) { :root { --txt-size: 0.5rem; } } 
-@media (min-width: 320px) { :root { --txt-size: 0.6rem; } } 
-@media (min-width: 480px) { :root { --txt-size: 0.7rem; } } 
-@media (min-width: 640px) { :root { --txt-size: 0.8rem; } } 
-@media (min-width: 768px) { :root { --txt-size: 0.9rem; } } 
-@media (min-width: 1024px) { :root { --txt-size: 1rem; } }
+@media (min-width: 240px) {
+  :root {
+    --txt-size: 0.5rem;
+  }
+}
+@media (min-width: 320px) {
+  :root {
+    --txt-size: 0.6rem;
+  }
+}
+@media (min-width: 480px) {
+  :root {
+    --txt-size: 0.7rem;
+  }
+}
+@media (min-width: 640px) {
+  :root {
+    --txt-size: 0.8rem;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --txt-size: 0.9rem;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --txt-size: 1rem;
+  }
+}
 
 .theme-light {
   --bg-color: #ece9e6;
