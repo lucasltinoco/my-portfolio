@@ -1,31 +1,31 @@
 <template>
   <section id="contact-me">
     <transition name="fade" mode="out-in">
-    <form v-if="lang === 'eng'" class="form" key="eng">
+    <form v-if="lang === 'eng'" class="form" key="eng" @submit="submitEmail">
       <label for="subject">Subject:</label>
       <br />
-      <input type="text" id="subject" name="subject" placeholder="Enter subject..." v-model="form.subject"/>
+      <input type="text" id="subject" name="subject" placeholder="Enter subject..." v-model="form.subject" required/>
       <br />
       <br />
       <label for="text">Text:</label>
       <br />
-      <textarea type="text" id="text" name="text" placeholder="Enter text..." v-model="form.body"></textarea>
+      <textarea type="text" id="text" name="text" placeholder="Enter text..." v-model="form.body" required></textarea>
       <br />
-      <input type="submit" value="Submit" id="submit" @click="onSubmit"/>
-      <input type="reset" value="Reset" id="reset" @click="onReset"/>
+      <input type="submit" value="Submit" id="submit"/>
+      <input type="reset" value="Reset" id="reset" @click="resetVars"/>
     </form>
-    <form v-else-if="lang === 'por'" class="form" key="por">
+    <form v-else-if="lang === 'por'" class="form" key="por" @submit="submitEmail">
       <label for="subject">Assunto:</label>
       <br />
-      <input type="text" id="subject" name="subject" placeholder="Insira o assunto..." v-model="form.subject"/>
+      <input type="text" id="subject" name="subject" placeholder="Insira o assunto..." v-model="form.subject" required/>
       <br />
       <br />
       <label for="text">Texto:</label>
       <br />
-      <textarea type="text" id="text" name="text" placeholder="Insira o texto..." v-model="form.body"></textarea>
+      <textarea type="text" id="text" name="text" placeholder="Insira o texto..." v-model="form.body" required></textarea>
       <br />
-      <input type="submit" value="Submeter" id="submit" @click="onSubmit"/>
-      <input type="reset" value="Resetar" id="reset" @click="onReset"/>
+      <input type="submit" value="Submeter" id="submit" />
+      <input type="reset" value="Resetar" id="reset" @click="resetVars"/>
     </form>
     </transition>
     <footer class="footer">© Lucas Tinoco 2020</footer>
@@ -47,12 +47,11 @@ export default {
     };
   },
   methods: {
-    onSubmit(e) {
-      e.preventDefault();
+    submitEmail(e) {
       document.location.href = `mailto:lucasltinoco@gmail.com?subject=${this.form.subject}&body=${this.form.body}`;
-    },
-    onReset(e) {
       e.preventDefault();
+    },
+    resetVars() {
       this.form.subject = "";
       this.form.body = "";
     }
