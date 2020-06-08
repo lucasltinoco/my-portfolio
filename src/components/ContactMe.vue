@@ -63,7 +63,8 @@ export default {
 <style>
 .form {
   width: 80vw;
-  margin-top: 2vh;
+  max-width: 1000px;
+  text-align: center;
 }
 
 #text,

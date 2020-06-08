@@ -65,6 +65,8 @@ export default {
   font-style: italic;
   font-size: calc(var(--txt-size) * 3 / 2);
   width: 80vw;
+  max-width: 1000px;
+  text-align: center;
 }
 
 .adjective {

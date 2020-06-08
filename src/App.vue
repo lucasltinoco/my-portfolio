@@ -124,17 +124,32 @@ export default {
             .classList.remove("current-page");
         }
       }
+    },
+    setVh() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
   },
   mounted() {
+    this.setVh();
     this.redirectUrl();
-    window.addEventListener("hashchange", () => this.highlightPageTitle());
+
+    window
+      .addEventListener("hashchange", 
+      () => this.highlightPageTitle());
+
     document
       .getElementById("app")
       .addEventListener("wheel", this.findScrollDirection);
+    
     document
       .getElementById("app")
       .addEventListener("touchstart", this.touchStart);
+
+    window.addEventListener('resize', () => {
+      this.setVh()
+      this.redirectUrl();
+    })
   }
 };
 </script>
@@ -173,6 +188,16 @@ export default {
     --txt-size: 1rem;
   }
 }
+@media (min-width: 1440px) {
+  :root {
+    --txt-size: 1.1rem;
+  }
+}
+@media (min-width: 2560px) {
+  :root {
+    --txt-size: 1.2rem;
+  }
+}
 
 .theme-light {
   --bg-color: #ece9e6;
@@ -203,12 +228,12 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: justify;
   position: relative;
   margin: 0;
   overflow: hidden;
   display: flex;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   flex-direction: column;
   line-height: 1.5;
   color: var(--secondary-txt-color);
@@ -220,7 +245,7 @@ section {
   position: relative;
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;

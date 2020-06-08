@@ -81,6 +81,7 @@ export default {
   margin: 0px;
   font-size: var(--txt-size);
   width: 80vw;
+  max-width: 1000px;
 }
 
 #who-i-am a,

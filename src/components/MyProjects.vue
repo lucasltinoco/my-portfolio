@@ -206,7 +206,6 @@ export default {
 
 .grid {
   display: grid;
-  margin-top: 2vh;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
   overflow-y: auto;
@@ -214,6 +213,7 @@ export default {
   align-items: center;
   gap: 10px 20px;
   width: 80vw;
+  max-width: 1000px;
 }
 
 .visible-grid {
