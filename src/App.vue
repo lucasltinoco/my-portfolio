@@ -128,15 +128,26 @@ export default {
     setVh() {
       let vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
+    },
+    handleKeys(event) {
+      switch (event.key) {
+        case "ArrowUp":
+        case "PageUp":
+          this.movePage("up")
+          break;
+        case "ArrowDown":
+        case "PageDown":
+          this.movePage("down")
+          break;
+        default:
+          break;
+      }
     }
   },
   mounted() {
     this.setVh();
     this.redirectUrl();
 
-    window
-      .addEventListener("hashchange", 
-      () => this.highlightPageTitle());
 
     document
       .getElementById("app")
@@ -145,11 +156,18 @@ export default {
     document
       .getElementById("app")
       .addEventListener("touchstart", this.touchStart);
+    
+    document.addEventListener('keydown', this.handleKeys);
+
 
     window.addEventListener('resize', () => {
       this.setVh()
       this.redirectUrl();
     })
+
+    window
+      .addEventListener("hashchange", 
+      () => this.highlightPageTitle());
   }
 };
 </script>
