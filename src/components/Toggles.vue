@@ -47,6 +47,7 @@ export default {
       document.querySelector(".page-title").classList.remove("visible");
       document.querySelector(".page-title").classList.add("hidden");
       setTimeout(() => {
+        this.$parent.highlightPageTitle()
         document.querySelector(".page-title").classList.remove("hidden");
         document.querySelector(".page-title").classList.add("visible");
       }, 250);
