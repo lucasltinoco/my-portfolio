@@ -76,18 +76,20 @@ export default {
 .social-page div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
 .social-page p {
   font-size: calc(var(--txt-size) * 1.2);
   text-align: center;
+  margin: 5px 0 0 0;
 }
 
 .social-page i {
   font-size: calc(var(--txt-size) * 5);
   color: var(--secondary-txt-color);
+  transition: 0.5s;
 }
 
 .footer {

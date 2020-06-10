@@ -12,6 +12,10 @@
       <button @click="setTag('react')">React</button>
       <button @click="setTag('jsonserver')">JSON Server</button>
       <button @click="setTag('angular')">Angular</button>
+      <button @click="setTag('reactnative')">React Native</button>
+      <button @click="setTag('typescript')">TypeScript</button>
+      <button @click="setTag('sqlite')">SQLite</button>
+      <button @click="setTag('nunjucks')">Nunjucks</button>
       <transition name="fade" mode="out-in">
         <!-- ADJUST TRANSITION -->
         <button v-if="lang === 'eng'" @click="setTag('all')" key="eng">All</button>
@@ -118,6 +122,16 @@
         </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/my-portfolio" target="_blank"></a>
       </div>
+
+      <div class="card ecoleta-booster" v-show="tags.react || tags.reactnative || tags.sqlite || tags.typescript || tags.all">
+          <div class="card-category">Ecoleta Booster</div>
+        <a class="card-link" href="https://github.com/lucasltinoco/ecoleta-booster" target="_blank"></a>
+      </div>
+      
+      <div class="card ecoleta-starter" v-show="tags.nunjucks || tags.sqlite || tags.all">
+          <div class="card-category">Ecoleta Starter</div>
+        <a class="card-link" href="https://github.com/lucasltinoco/ecoleta-starter" target="_blank"></a>
+      </div>
     </div>
   </section>
 </template>
@@ -142,6 +156,10 @@ export default {
         react: false,
         jsonserver: false,
         angular: false,
+        reactnative: false,
+        sqlite: false,
+        nunjucks: false,
+        typescript: false,
         all: true
       }
     };
@@ -169,7 +187,11 @@ export default {
     configureGrid(gridElement) {
       const cards = this.getChildren(gridElement)
       const columns = Math.ceil(cards / 2)
-      gridElement.style = `grid-template-columns: repeat(${columns}, 1fr);`
+      gridElement.style = `
+        grid-template-columns: repeat(${columns}, 1fr); 
+        width: ${columns * 152 + (columns - 1) * 20}px;
+        max-width: 80vw;
+      `
     },
     transitionGrid(gridElement) {
       gridElement.classList.remove("visible-grid");
@@ -210,14 +232,14 @@ export default {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   overflow-y: auto;
   justify-items: center;
   align-items: center;
   gap: 10px 20px;
-  width: 80vw;
-  max-width: 1000px;
+  width: 1012px;
+  max-width: 80vw;
 }
 
 .visible-grid {
@@ -334,6 +356,14 @@ export default {
 
 .portfolio {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/proerd.gif"); /* TEMPORARY */
+    url("../assets/imgs/projects/portfolio.gif"); /* TEMPORARY */
+}
+.ecoleta-booster {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
+    url("../assets/imgs/projects/ecoleta-booster.gif");
+}
+.ecoleta-starter {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
+    url("../assets/imgs/projects/ecoleta-starter.gif");
 }
 </style>
