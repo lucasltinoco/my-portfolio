@@ -23,6 +23,9 @@
       <a href="mailto:lucasltinoco@gmail.com">
         <i class="im im-newsletter"></i>
       </a>
+      <a href="mailto:lucasltinoco@gmail.com">
+        <i class="im im-instagram"></i>
+      </a>
     </div>
   </section>
 </template>

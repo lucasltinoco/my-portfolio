@@ -19,7 +19,7 @@
       <h1 class="page-title">/ {{currentPage}}</h1>
     </div>
     <transition name="fade" mode="out-in">
-      <div v-if="lang == 'eng'" class="nav" key="eng">
+      <div v-if="lang === 'eng'" class="nav" key="eng">
         <a href="#home">home</a>
         <a href="#who-i-am">who i am</a>
         <a href="#what-i-do">what i do</a>
@@ -36,14 +36,14 @@
     </transition>
     <div class="dropdown-menu">
       <i class="im im-menu-list"></i>
-      <div v-if="lang == 'eng'" class="dropdown-nav" style="display: none;">
+      <div v-if="lang === 'eng'" class="dropdown-nav" style="display: none;" key="eng">
         <a href="#home">home</a>
         <a href="#who-i-am">who i am</a>
         <a href="#what-i-do">what i do</a>
         <a href="#my-projects">my projects</a>
         <a href="#contact-me" style="margin-right=0px;">contact me</a>
       </div>
-      <div v-else-if="lang === 'por'" class="dropdown-nav" style="display: none;">
+      <div v-else-if="lang === 'por'" class="dropdown-nav" style="display: none;" key="por">
         <a href="#home">início</a>
         <a href="#who-i-am">quem sou</a>
         <a href="#what-i-do">o que faço</a>
