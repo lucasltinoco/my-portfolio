@@ -25,7 +25,7 @@
           <div v-if="lang === 'eng'" class="card-category" key="eng">Run & Jump Game</div>
           <div v-else-if="lang === 'por'" class="card-category" key="por">Proerd Game</div>
         </transition>
-        <a class="card-link" href="https://github.com/lucasltinoco/proerd-game"></a>
+        <a class="card-link" href="https://github.com/lucasltinoco/proerd-game" target="_blank"></a>
       </div>
 
       <div
@@ -36,7 +36,7 @@
           <div v-if="lang === 'eng'" class="card-category" key="eng">Knowledge Base</div>
           <div v-else-if="lang === 'por'" class="card-category" key="por">Base de Conhecimento</div>
         </transition>
-        <a class="card-link" href="https://github.com/lucasltinoco/knowledge"></a>
+        <a class="card-link" href="https://github.com/lucasltinoco/knowledge" target="_blank"></a>
       </div>
 
       <div class="card gallery" v-show="tags.bootstrap || tags.jquery || tags.webpack || tags.all">
@@ -47,6 +47,7 @@
         <a
           class="card-link"
           href="https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria"
+          target="_blank"
         ></a>
       </div>
 
@@ -58,6 +59,7 @@
         <a
           class="card-link"
           href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/calculadora"
+          target="_blank"
         ></a>
       </div>
 
@@ -66,7 +68,7 @@
           <div v-if="lang === 'eng'" class="card-category" key="eng">React CRUD</div>
           <div v-else-if="lang === 'por'" class="card-category" key="por">CRUD com React</div>
         </transition>
-        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/crud"></a>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/crud" target="_blank"></a>
       </div>
 
       <div class="card qr-code" v-show="tags.vue || tags.all">
@@ -85,6 +87,7 @@
         <a
           class="card-link"
           href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/calculator"
+          target="_blank"
         ></a>
       </div>
 
@@ -96,6 +99,7 @@
         <a
           class="card-link"
           href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/montyhall"
+          target="_blank"
         ></a>
       </div>
 
@@ -104,7 +108,7 @@
           <div v-if="lang === 'eng'" class="card-category" key="eng">Angular CRUD</div>
           <div v-else-if="lang === 'por'" class="card-category" key="por">CRUD com Angular</div>
         </transition>
-        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/angular"></a>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/angular" target="_blank"></a>
       </div>
 
       <div class="card portfolio" v-show="tags.vue || tags.all">
@@ -112,7 +116,7 @@
           <div v-if="lang === 'eng'" class="card-category" key="eng">Portfolio</div>
           <div v-else-if="lang === 'por'" class="card-category" key="por">Portfólio</div>
         </transition>
-        <a class="card-link" href="https://github.com/lucasltinoco/my-portfolio"></a>
+        <a class="card-link" href="https://github.com/lucasltinoco/my-portfolio" target="_blank"></a>
       </div>
     </div>
   </section>

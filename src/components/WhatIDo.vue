@@ -28,6 +28,7 @@
         and on
         <a
           href="https://github.com/lucasltinoco/"
+          target="_blank"
         >GitHub</a>!
       </p>
       <p v-else-if="lang === 'por'" key="por">
@@ -41,6 +42,7 @@
         página e no
         <a
           href="https://github.com/lucasltinoco/"
+          target="_blank"
         >GitHub</a>!
       </p>
     </transition>

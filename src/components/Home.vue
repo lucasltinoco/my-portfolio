@@ -14,16 +14,16 @@
       </p>
     </transition>
     <div class="social">
-      <a href="https://www.linkedin.com/in/lucas-tinoco-783420194/">
+      <a href="https://www.linkedin.com/in/lucas-tinoco-783420194/" target="_blank">
         <i class="im im-linkedin"></i>
       </a>
-      <a href="https://github.com/lucasltinoco">
+      <a href="https://github.com/lucasltinoco" target="_blank">
         <i class="im im-github"></i>
       </a>
-      <a href="mailto:lucasltinoco@gmail.com">
+      <a href="mailto:lucasltinoco@gmail.com" target="_blank">
         <i class="im im-newsletter"></i>
       </a>
-      <a href="mailto:lucasltinoco@gmail.com">
+      <a href="https://www.instagram.com/lucasltinoco/" target="_blank">
         <i class="im im-instagram"></i>
       </a>
     </div>

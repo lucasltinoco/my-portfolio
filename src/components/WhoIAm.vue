@@ -22,10 +22,12 @@
         I'm an electronics technician graduated in 2019 at the
         <a
           href="https://www.ifsc.edu.br/international"
+          target="_blank"
         >Federal Institute of Santa Catarina (IFSC)</a>,
         who now strives to get an undergraduate degree in Electronical Engineering at the
         <a
           href="https://en.ufsc.br/"
+          target="_blank"
         >Federal University of Santa Catarina (UFSC)</a>. Currently, I live in Florianópolis (Brazil), where, in addition to studying engineering, I study
         programming on my own. When I'm not designing new circuits, studying or coding, I like to play some basketball or
         soccer, to read and to sing - sometimes mixing things up too...
@@ -35,10 +37,12 @@
         Eu sou um técnico em eletrônica formado em 2019 no
         <a
           href="https://www.ifsc.edu.br/"
+          target="_blank"
         >Instituto Federal de Santa Catarina (IFSC)</a>,
         que hoje ambiciona se formar em Engenharia Eletrônica na
         <a
           href="https://ufsc.br/"
+          target="_blank"
         >Universidade Federal de Santa Catarina (UFSC)</a>.
         Atualmente, moro em Florianópolis (SC), onde, além de estudar engenharia, estudo programação por conta própria. Quando
         não estou projetando novos circuitos, estudando ou programando, eu gosto de jogar basquete ou futebol, de ler e de cantar

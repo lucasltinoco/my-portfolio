@@ -2,7 +2,7 @@
   <section id="contact-me">
     <div class="social-page">
       <div>
-        <a href="https://www.linkedin.com/in/lucas-tinoco-783420194/">
+        <a href="https://www.linkedin.com/in/lucas-tinoco-783420194/" target="_blank">
           <i class="im im-linkedin"></i>
         </a>
         <transition name="fade" mode="out-in">
@@ -14,7 +14,7 @@
         </transition>
       </div>
       <div>
-        <a href="https://github.com/lucasltinoco">
+        <a href="https://github.com/lucasltinoco" target="_blank">
           <i class="im im-github"></i>
         </a>
         <transition name="fade" mode="out-in">
@@ -26,7 +26,7 @@
         </transition>
       </div>
       <div>
-        <a href="mailto:lucasltinoco@gmail.com">
+        <a href="mailto:lucasltinoco@gmail.com" target="_blank">
           <i class="im im-newsletter"></i>
         </a>
         <transition name="fade" mode="out-in">
@@ -38,7 +38,7 @@
         </transition>
       </div>
       <div>
-        <a href="https://www.instagram.com/lucasltinoco/">
+        <a href="https://www.instagram.com/lucasltinoco/" target="_blank">
           <i class="im im-instagram"></i>
         </a>
         <transition name="fade" mode="out-in">
