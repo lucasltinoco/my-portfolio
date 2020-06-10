@@ -2,7 +2,7 @@
   <header class="header">
     <div class="title svg-fade">
       <transition name="fade" mode="out-in">
-        <img
+        <a href="#home"><img
           v-if="theme === 'theme-dark'"
           src="../assets/imgs/logo-dark.svg"
           alt="logo"
@@ -13,7 +13,7 @@
           src="../assets/imgs/logo-light.svg"
           alt="logo"
           key="light"
-        />
+        /></a>
       </transition>
       <h1 class="name-title">lucas l. tinoco</h1>
       <h1 class="page-title">/ {{currentPage}}</h1>
@@ -173,7 +173,7 @@ header .dropdown-nav a {
 
 header .title img {
   height: calc(var(--txt-size) * 10 / 3);
-  width: calc(var(--txt-size) * 20 / 3);
+  width: auto;
 }
 
 
@@ -200,6 +200,7 @@ header .title img {
 
   header .page-title {
     display: flex;
+    margin-left: 8px;
   }
 }
 </style>
