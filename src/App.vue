@@ -139,6 +139,12 @@ export default {
         case "PageDown":
           this.movePage("down")
           break;
+        case "Home":
+          location.href = `${this.baseUrl}#home`
+          break;
+        case "End":
+          location.href = `${this.baseUrl}#contact-me`
+          break;
         default:
           break;
       }
