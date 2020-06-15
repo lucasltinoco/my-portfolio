@@ -160,6 +160,12 @@ export default {
           break;
       }
     },
+    onProjectsLoaded() {
+      setTimeout(() => {
+        this.pageIsLoading = false
+        this.redirectUrl();
+      }, 250);
+    },
     playVideos() {
       const videos = document.querySelectorAll(
         "#my-projects > div.grid > div > video"
@@ -174,10 +180,6 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.pageIsLoading = false
-      this.redirectUrl();
-    }, 3000);
     this.setVh();
 
     document

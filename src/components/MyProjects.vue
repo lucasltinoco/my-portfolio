@@ -339,6 +339,9 @@ export default {
       }, 250);
     },
   },
+  mounted() {
+    this.$parent.onProjectsLoaded();
+  }
 };
 </script>
 
