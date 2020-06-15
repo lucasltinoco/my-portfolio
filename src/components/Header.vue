@@ -2,21 +2,23 @@
   <header class="header">
     <div class="title svg-fade">
       <transition name="fade" mode="out-in">
-        <a href="#home"><img
-          v-if="theme === 'theme-dark'"
-          src="../assets/imgs/logo-dark.svg"
-          alt="logo"
-          key="dark"
-        />
-        <img
-          v-else-if="theme === 'theme-light'"
-          src="../assets/imgs/logo-light.svg"
-          alt="logo"
-          key="light"
-        /></a>
+        <a href="#home">
+          <img
+            v-if="theme === 'theme-dark'"
+            src="../assets/imgs/logo-dark.svg"
+            alt="logo"
+            key="dark"
+          />
+          <img
+            v-else-if="theme === 'theme-light'"
+            src="../assets/imgs/logo-light.svg"
+            alt="logo"
+            key="light"
+          />
+        </a>
       </transition>
       <h1 class="name-title">lucas l. tinoco</h1>
-      <h1 class="page-title">/ {{currentPage}}</h1>
+      <h1 class="page-title">/ {{ currentPage }}</h1>
     </div>
     <transition name="fade" mode="out-in">
       <div v-if="lang === 'eng'" class="nav" key="eng">
@@ -65,18 +67,20 @@ export default {
       navElement.style.display === "none"
         ? (navElement.style.display = "inline-block")
         : (navElement.style.display = "none");
-    }
+    },
   },
   mounted() {
     window.onclick = () => {
       const navElement = document.querySelector(".dropdown-nav");
-      if (navElement.style.display === "inline-block") {
-        this.changeNavClass(navElement);
-      } else if (event.target.matches(".im-menu-list")) {
+      if (
+        navElement.style.display === "inline-block" ||
+        event.target.matches(".im-menu-list")
+      ) {
         this.changeNavClass(navElement);
       }
+      this.$parent.playVideos();
     };
-  }
+  },
 };
 </script>
 
@@ -175,7 +179,6 @@ header .title img {
   height: calc(var(--txt-size) * 10 / 3);
   width: auto;
 }
-
 
 @media only screen and (max-width: 1024px) {
   header .title .name-title {

@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <Header />
-    <Home />
-    <WhoIAm />
-    <WhatIDo />
-    <MyProjects />
-    <ContactMe />
-    <Toggles />
+    <SplashScreen :pageIsLoading="pageIsLoading" />
+    <div v-show="!pageIsLoading">
+      <Header />
+      <Home />
+      <WhoIAm />
+      <WhatIDo />
+      <MyProjects />
+      <ContactMe />
+      <Toggles />
+    </div>
   </div>
 </template>
 
@@ -19,6 +22,7 @@ import WhatIDo from "./components/WhatIDo";
 import MyProjects from "./components/MyProjects";
 import ContactMe from "./components/ContactMe";
 import Toggles from "./components/Toggles";
+import SplashScreen from "./components/SplashScreen";
 
 export default {
   name: "App",
@@ -30,7 +34,8 @@ export default {
     MyProjects,
     ContactMe,
     Header,
-    Toggles
+    Toggles,
+    SplashScreen,
   },
   data: function() {
     return {
@@ -39,7 +44,8 @@ export default {
       lastAnimation: 0,
       quietPeriod: 500,
       startX: 0,
-      startY: 0
+      startY: 0,
+      pageIsLoading: true,
     };
   },
   methods: {
@@ -54,7 +60,7 @@ export default {
       } else {
         location.href = `${this.baseUrl}#${this.pages[0]}`;
       }
-      this.highlightPageTitle();
+      setTimeout(() => this.highlightPageTitle(), 250);
     },
     findScrollDirection(event) {
       if (event.shiftKey) return;
@@ -81,11 +87,12 @@ export default {
         let deltaX = this.startX - touches[0].pageX;
         let deltaY = this.startY - touches[0].pageY;
 
-        if (deltaY >= 50) this.movePage("down")
-        
-        if (deltaY <= -50) this.movePage("up")
+        if (deltaY >= 50) this.movePage("down");
 
-        if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) document.removeEventListener("touchmove", this.touchMove);
+        if (deltaY <= -50) this.movePage("up");
+
+        if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50)
+          document.removeEventListener("touchmove", this.touchMove);
       }
     },
     movePage(direction) {
@@ -124,57 +131,72 @@ export default {
             .classList.remove("current-page");
         }
       }
+
+      page === "my-projects"
+        ? this.playVideos()
+        : this.pauseVideos();
     },
     setVh() {
       let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
     },
     handleKeys(event) {
       switch (event.key) {
         case "ArrowUp":
         case "PageUp":
-          this.movePage("up")
+          this.movePage("up");
           break;
         case "ArrowDown":
         case "PageDown":
-          this.movePage("down")
+          this.movePage("down");
           break;
         case "Home":
-          location.href = `${this.baseUrl}#home`
+          location.href = `${this.baseUrl}#home`;
           break;
         case "End":
-          location.href = `${this.baseUrl}#contact-me`
+          location.href = `${this.baseUrl}#contact-me`;
           break;
         default:
           break;
       }
+    },
+    playVideos() {
+      const videos = document.querySelectorAll(
+        "#my-projects > div.grid > div > video"
+      );
+      videos.forEach(video => video.play());
+    },
+    pauseVideos() {
+      const videos = document.querySelectorAll(
+        "#my-projects > div.grid > div > video"
+      );
+      videos.forEach(video => video.pause());
     }
   },
   mounted() {
+    setTimeout(() => {
+      this.pageIsLoading = false
+      this.redirectUrl();
+    }, 3000);
     this.setVh();
-    this.redirectUrl();
-
 
     document
       .getElementById("app")
       .addEventListener("wheel", this.findScrollDirection);
-    
+
     document
       .getElementById("app")
       .addEventListener("touchstart", this.touchStart);
-    
-    document.addEventListener('keydown', this.handleKeys);
 
+    document.addEventListener("keydown", this.handleKeys);
 
-    window.addEventListener('resize', () => {
-      this.setVh()
+    window.addEventListener("resize", () => {
+      this.setVh();
       this.redirectUrl();
-    })
+    });
 
-    window
-      .addEventListener("hashchange", 
-      () => this.highlightPageTitle());
-  }
+    window.addEventListener("hashchange", () => this.highlightPageTitle());
+  },
 };
 </script>
 

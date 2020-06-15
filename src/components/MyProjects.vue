@@ -18,47 +18,94 @@
       <button @click="setTag('nunjucks')">Nunjucks</button>
       <transition name="fade" mode="out-in">
         <!-- ADJUST TRANSITION -->
-        <button v-if="lang === 'eng'" @click="setTag('all')" key="eng">All</button>
-        <button v-else-if="lang === 'por'" @click="setTag('all')" key="por">Todos</button>
+        <button v-if="lang === 'eng'" @click="setTag('all')" key="eng">
+          All
+        </button>
+        <button v-else-if="lang === 'por'" @click="setTag('all')" key="por">
+          Todos
+        </button>
       </transition>
     </div>
 
     <div class="grid">
-      <div class="card proerd" v-show="tags.cpp || tags.allegro || tags.all">
+      <div class="card" v-show="
+          tags.cpp || 
+          tags.allegro || 
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/proerd.mp4" type="video/mp4" />
+        </video>
         <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">Run & Jump Game</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">Proerd Game</div>
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            Run & Jump Game
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            Proerd Game
+          </div>
         </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/proerd-game" target="_blank"></a>
       </div>
 
-      <div
-        class="card knowledge"
-        v-show="tags.vue || tags.bootstrap || tags.mongodb || tags.postgresql || tags.all"
+      <div class="card" v-show="
+          tags.vue ||
+          tags.bootstrap ||
+          tags.mongodb ||
+          tags.postgresql ||
+          tags.all
+        "
       >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/knowledge.mp4" type="video/mp4" />
+        </video>
         <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">Knowledge Base</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">Base de Conhecimento</div>
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            Knowledge Base
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            Base de Conhecimento
+          </div>
         </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/knowledge" target="_blank"></a>
       </div>
 
-      <div class="card gallery" v-show="tags.bootstrap || tags.jquery || tags.webpack || tags.all">
+      <div class="card" v-show="
+          tags.bootstrap || 
+          tags.jquery || 
+          tags.webpack || 
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/gallery.mp4" type="video/mp4" />
+        </video>
         <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">Trip Gallery</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">Galeria de Viagens</div>
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            Trip Gallery
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            Galeria de Viagens
+          </div>
         </transition>
-        <a
-          class="card-link"
-          href="https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria"
-          target="_blank"
-        ></a>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/bootstrap/projeto-galeria" target="_blank"></a>
       </div>
 
-      <div class="card react-calc" v-show="tags.react || tags.all">
+      <div class="card" v-show="
+          tags.react || 
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/react-calc.mp4" type="video/mp4"/>
+        </video>
         <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">React Calculator</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">Calculadora com React</div>
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            React Calculator
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            Calculadora com React
+          </div>
         </transition>
         <a
           class="card-link"
@@ -67,69 +114,156 @@
         ></a>
       </div>
 
-      <div class="card react-crud" v-show="tags.react || tags.jsonserver || tags.all">
+      <div class="card" v-show="
+          tags.react || 
+          tags.jsonserver || 
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/react-crud.mp4" type="video/mp4"/>
+        </video>
         <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">React CRUD</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">CRUD com React</div>
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            React CRUD
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            CRUD com React
+          </div>
         </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/react/crud" target="_blank"></a>
       </div>
 
-      <div class="card qr-code" v-show="tags.vue || tags.all">
+      <div class="card" v-show="
+          tags.vue ||
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/qr-code.mp4" type="video/mp4" />
+        </video>
         <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">QR Code Generator</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">Gerador de QR Code</div>
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            QR Code Generator
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            Gerador de QR Code
+          </div>
         </transition>
-        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/qrcode"></a>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/qrcode" target="_blank"></a>
       </div>
 
-      <div class="card vue-calc" v-show="tags.vue || tags.all">
+      <div class="card" v-show="
+          tags.vue ||
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/vue-calc.mp4" type="video/mp4" />
+        </video>
         <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">Vue Calculator</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">Calculadora com Vue</div>
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            Vue Calculator
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            Calculadora com Vue
+          </div>
+        </transition>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/calculator" target="_blank"></a>
+      </div>
+
+      <div class="card" v-show="
+          tags.vue || 
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/monty-hall.mp4" type="video/mp4"/>
+        </video>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            Monty Hall Problem
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            Problema de Monty Hall
+          </div>
+        </transition>
+        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/montyhall" target="_blank"></a>
+      </div>
+
+      <div class="card" v-show="
+          tags.angular ||
+          tags.jsonserver || 
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source
+            src="../assets/imgs/projects/angular-crud.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <transition name="fade" mode="out-in">
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            Angular CRUD
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            CRUD com Angular
+          </div>
         </transition>
         <a
           class="card-link"
-          href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/calculator"
+          href="https://github.com/lucasltinoco/cursoWeb/tree/master/angular"
           target="_blank"
         ></a>
       </div>
 
-      <div class="card monty-hall" v-show="tags.vue || tags.all">
+      <div class="card" v-show="
+          tags.vue || 
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/portfolio.mp4" type="video/mp4"/>
+        </video>
         <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">Monty Hall Problem</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">Problema de Monty Hall</div>
-        </transition>
-        <a
-          class="card-link"
-          href="https://github.com/lucasltinoco/cursoWeb/tree/master/vue/montyhall"
-          target="_blank"
-        ></a>
-      </div>
-
-      <div class="card angular-crud" v-show="tags.angular || tags.jsonserver || tags.all">
-        <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">Angular CRUD</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">CRUD com Angular</div>
-        </transition>
-        <a class="card-link" href="https://github.com/lucasltinoco/cursoWeb/tree/master/angular" target="_blank"></a>
-      </div>
-
-      <div class="card portfolio" v-show="tags.vue || tags.all">
-        <transition name="fade" mode="out-in">
-          <div v-if="lang === 'eng'" class="card-category" key="eng">Portfolio</div>
-          <div v-else-if="lang === 'por'" class="card-category" key="por">Portfólio</div>
+          <div v-if="lang === 'eng'" class="card-category" key="eng">
+            Portfolio
+          </div>
+          <div v-else-if="lang === 'por'" class="card-category" key="por">
+            Portfólio
+          </div>
         </transition>
         <a class="card-link" href="https://github.com/lucasltinoco/my-portfolio" target="_blank"></a>
       </div>
 
-      <div class="card ecoleta-booster" v-show="tags.react || tags.reactnative || tags.sqlite || tags.typescript || tags.all">
-          <div class="card-category">Ecoleta Booster</div>
+      <div
+        class="card"
+        v-show="
+          tags.react ||
+          tags.reactnative ||
+          tags.sqlite ||
+          tags.typescript ||
+          tags.all
+        "
+      >
+        <video loop width="150" height="150">
+          <source src="../assets/imgs/projects/ecoleta-booster.mp4" type="video/mp4"/>
+        </video>
+        <div class="card-category">Ecoleta Booster</div>
         <a class="card-link" href="https://github.com/lucasltinoco/ecoleta-booster" target="_blank"></a>
       </div>
-      
-      <div class="card ecoleta-starter" v-show="tags.nunjucks || tags.sqlite || tags.all">
-          <div class="card-category">Ecoleta Starter</div>
+
+      <div class="card" v-show="
+          tags.nunjucks || 
+          tags.sqlite || 
+          tags.all
+        "
+      >
+        <video loop width="150px" height="150px">
+          <source src="../assets/imgs/projects/ecoleta-starter.mp4" type="video/mp4"/>
+        </video>
+        <div class="card-category">Ecoleta Starter</div>
         <a class="card-link" href="https://github.com/lucasltinoco/ecoleta-starter" target="_blank"></a>
       </div>
     </div>
@@ -160,38 +294,41 @@ export default {
         sqlite: false,
         nunjucks: false,
         typescript: false,
-        all: true
-      }
+        all: true,
+      },
     };
   },
   methods: {
     setTag(tag) {
-      this.transitionGrid(document.querySelector('.grid'))
+      this.transitionGrid(document.querySelector(".grid"));
       for (let [key, value] of Object.entries(this.tags)) {
         key == tag ? (value = true) : (value = false);
         this.tags[key] = value;
       }
       setTimeout(() => {
-        this.configureGrid(document.querySelector('.grid'))
-      }, 1)
+        this.configureGrid(document.querySelector(".grid"));
+      }, 1);
     },
     getChildren(gridElement) {
-      let activeChildren = 0
+      let activeChildren = 0;
       for (let i = 1; i <= gridElement.children.length; i++) {
-        if(!(document.querySelector(`.grid div:nth-child(${i})`).style.display === 'none')) {
-          activeChildren++
+        if (
+          !(
+            document.querySelector(`.grid div:nth-child(${i})`).style.display === "none"
+          )
+        ) {
+          activeChildren++;
         }
       }
-      return activeChildren
+      return activeChildren;
     },
     configureGrid(gridElement) {
-      const cards = this.getChildren(gridElement)
-      const columns = Math.ceil(cards / 2)
+      const cards = this.getChildren(gridElement);
+      const columns = Math.ceil(cards / 2);
       gridElement.style = `
         grid-template-columns: repeat(${columns}, 1fr); 
         width: ${columns * 152 + (columns - 1) * 20}px;
-        max-width: 80vw;
-      `
+      `;
     },
     transitionGrid(gridElement) {
       gridElement.classList.remove("visible-grid");
@@ -200,8 +337,8 @@ export default {
         gridElement.classList.remove("hidden-grid");
         gridElement.classList.add("visible-grid");
       }, 250);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -273,6 +410,10 @@ export default {
   height: 150px;
   width: 150px;
   border-radius: 8px;
+}
+
+video {
+  border-radius: 8px;
   border: 1px solid var(--primary-txt-color);
   transition: 0.5s;
 }
@@ -307,63 +448,5 @@ export default {
 
 .card-link:hover {
   opacity: 0.1;
-}
-
-.proerd {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/proerd.gif");
-}
-
-.gallery {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/gallery.gif");
-}
-
-.knowledge {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/knowledge.gif");
-}
-
-.react-calc {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/react-calc.gif");
-}
-
-.react-crud {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/react-crud.gif");
-}
-
-.qr-code {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/qr-code.gif");
-}
-
-.vue-calc {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/vue-calc.gif");
-}
-
-.monty-hall {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/monty-hall.gif");
-}
-
-.angular-crud {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/angular-crud.gif");
-}
-
-.portfolio {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/portfolio.gif"); /* TEMPORARY */
-}
-.ecoleta-booster {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/ecoleta-booster.gif");
-}
-.ecoleta-starter {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url("../assets/imgs/projects/ecoleta-starter.gif");
 }
 </style>
