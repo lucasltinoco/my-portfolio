@@ -164,7 +164,7 @@ export default {
       setTimeout(() => {
         this.pageIsLoading = false
         this.redirectUrl();
-      }, 250);
+      }, 1000);
     },
     playVideos() {
       const videos = document.querySelectorAll(
